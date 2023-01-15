@@ -1,6 +1,6 @@
 import {Dispatch} from 'redux';
-import {Chain} from '@magicwallet/chain-types';
-import {WalletType} from '@magicwallet/types';
+import {Chain} from '@degenwallet/chain-types';
+import {WalletType} from '@degenwallet/types';
 
 type AddNewWallet = {
   name: string;

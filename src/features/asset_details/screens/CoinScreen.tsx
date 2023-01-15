@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import {Props, Screen} from '@magicwallet/navigation';
-import {Colors} from '@magicwallet/styles';
-import {WalletHeader, WalletHeaderAction} from '@magicwallet/views/src/WalletHeader';
+import {Props, Screen} from '@degenwallet/navigation';
+import {Colors} from '@degenwallet/styles';
+import {WalletHeader, WalletHeaderAction} from '@degenwallet/views/src/WalletHeader';
 import {
   GetAssetSelector,
   GetAssetTitle,

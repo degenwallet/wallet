@@ -1,4 +1,4 @@
-import {Asset} from '@magicwallet/chain-types';
+import {Asset} from '@degenwallet/chain-types';
 
 export class Prices {
   currency: string;

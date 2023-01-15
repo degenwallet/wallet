@@ -1,7 +1,7 @@
 import {GetQuote, Quote} from './model';
 import {ProviderError, QuoteRequest} from '../../model';
 import {Assets} from '../transak/model';
-import {fetchJSON} from '@magicwallet/client';
+import {fetchJSON} from '@degenwallet/client';
 
 // documentation: https://docs.ramp.network/rest-api-v3-reference
 

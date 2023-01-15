@@ -1,4 +1,4 @@
-import {Asset, AssetType, Chain} from '@magicwallet/chain-types';
+import {Asset, AssetType, Chain} from '@degenwallet/chain-types';
 import {ImageRequireSource} from 'react-native';
 
 export class AssetImageViewSource {

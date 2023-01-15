@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Colors, FontWeight} from '@magicwallet/styles';
-import {FiatBalanceFormatter} from '@magicwallet/views';
+import {Colors, FontWeight} from '@degenwallet/styles';
+import {FiatBalanceFormatter} from '@degenwallet/views';
 
 export interface WalletHeaderBalanceProps {
   value: number;

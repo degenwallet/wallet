@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {Asset, AssetImageFormatter, Chain} from '@magicwallet/chain-types';
-import {AssetsEndpoints} from '@magicwallet/config';
-import {Colors} from '@magicwallet/styles';
-import {Touchable} from '@magicwallet/core-components';
+import {Asset, AssetImageFormatter, Chain} from '@degenwallet/chain-types';
+import {AssetsEndpoints} from '@degenwallet/config';
+import {Colors} from '@degenwallet/styles';
+import {Touchable} from '@degenwallet/core-components';
 import {GetAssetResource} from '../../assets/asset-resource';
 
 export interface ChainViewProps {

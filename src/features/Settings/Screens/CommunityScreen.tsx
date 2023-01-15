@@ -1,8 +1,8 @@
 import React from 'react';
 import {FlatList, ImageSourcePropType, Linking, SafeAreaView, StyleSheet} from 'react-native';
-import {Props, Screen} from '@magicwallet/navigation';
-import {Colors, DefaultStyles} from '@magicwallet/styles';
-import {FormListItem} from '@magicwallet/views';
+import {Props, Screen} from '@degenwallet/navigation';
+import {Colors, DefaultStyles} from '@degenwallet/styles';
+import {FormListItem} from '@degenwallet/views';
 
 export const CommunityScreen: React.FC<Props<Screen.COMMUNITY>> = ({}) => {
   const items: {
@@ -13,28 +13,28 @@ export const CommunityScreen: React.FC<Props<Screen.COMMUNITY>> = ({}) => {
     {
       title: 'Twitter',
       onPress: () => {
-        Linking.openURL('https://twitter.com/MagicWalletApp').then(r => r);
+        Linking.openURL('https://twitter.com/DegenWalletApp').then(r => r);
       },
       image: require('../../../assets/images/social/twitter.png'),
     },
     {
       title: 'Telegram',
       onPress: () => {
-        Linking.openURL('https://t.me/magicwallet').then(r => r);
+        Linking.openURL('https://t.me/DegenWalletApp').then(r => r);
       },
       image: require('../../../assets/images/social/telegram.png'),
     },
     {
       title: 'Reddit',
       onPress: () => {
-        Linking.openURL('https://www.reddit.com/r/MagicWallet/').then(r => r);
+        Linking.openURL('https://www.reddit.com/r/DegenWallet').then(r => r);
       },
       image: require('../../../assets/images/social/reddit.png'),
     },
     {
       title: 'GitHub',
       onPress: () => {
-        Linking.openURL('https://github.com/magicwallet').then(r => r);
+        Linking.openURL('https://github.com/degenwallet').then(r => r);
       },
       image: require('../../../assets/images/social/github.png'),
     },

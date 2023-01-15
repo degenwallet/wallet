@@ -1,4 +1,4 @@
-import {Asset} from '@magicwallet/chain-types';
+import {Asset} from '@degenwallet/chain-types';
 
 export type Price = {
   price: number;

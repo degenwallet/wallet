@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {MagicButtonStyle} from '@magicwallet/styles';
-import {MagicButton} from '@magicwallet/core-components/src/MagicButton';
+import {DegenButtonStyle} from '@degenwallet/styles';
+import {DegenButton} from '@degenwallet/core-components/src/DegenButton';
 
 export enum WalletHeaderAction {
   RECEIVE = 'RECEIVE',
@@ -16,15 +16,15 @@ export class WalletHeaderButtons extends React.Component<AssetListItemProps> {
   render() {
     return (
       <View style={styles.container}>
-        <MagicButton
+        <DegenButton
           title={'Receive'}
-          style={MagicButtonStyle.normal}
+          style={DegenButtonStyle.normal}
           onPress={_ => this.props.onPress(WalletHeaderAction.RECEIVE)}
         />
         <View style={{padding: 10}} />
-        <MagicButton
+        <DegenButton
           title={'Buy'}
-          style={MagicButtonStyle.normal}
+          style={DegenButtonStyle.normal}
           onPress={_ => this.props.onPress(WalletHeaderAction.BUY)}
         />
       </View>

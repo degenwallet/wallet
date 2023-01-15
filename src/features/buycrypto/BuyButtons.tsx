@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {MagicButton} from '@magicwallet/core-components';
-import {MagicButtonStyle} from '@magicwallet/styles';
+import {DegenButton} from '@degenwallet/core-components';
+import {DegenButtonStyle} from '@degenwallet/styles';
 
 class BuyButtonsProps {
   amounts: number[][];
@@ -16,9 +16,9 @@ export class BuyButtons extends React.Component<BuyButtonsProps> {
           <View style={styles.input_buttons} key={String(amounts)}>
             {amounts.map(amount => (
               <View style={styles.input_button} key={String(amount)}>
-                <MagicButton
+                <DegenButton
                   title={`$${String(amount)}`}
-                  style={MagicButtonStyle.light}
+                  style={DegenButtonStyle.light}
                   onPress={_ => {
                     this.props.onPress(amount);
                   }}

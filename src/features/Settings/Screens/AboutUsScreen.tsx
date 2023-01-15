@@ -1,9 +1,10 @@
 import React from 'react';
 import {FlatList, Image, Linking, SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import {Props, Screen} from '@magicwallet/navigation';
-import {Colors, DefaultStyles, FontWeight} from '@magicwallet/styles';
-import {FormListItem} from '@magicwallet/views';
+import {Props, Screen} from '@degenwallet/navigation';
+import {Colors, DefaultStyles, FontWeight} from '@degenwallet/styles';
+import {FormListItem} from '@degenwallet/views';
 import DeviceInfo from 'react-native-device-info';
+import { DISPLAY_NAME, WEBSITE } from "@degenwallet/config";
 
 export const AboutUsScreen: React.FC<Props<Screen.ABOUT_US>> = ({navigation}) => {
   const items: {
@@ -19,25 +20,25 @@ export const AboutUsScreen: React.FC<Props<Screen.ABOUT_US>> = ({navigation}) =>
     {
       title: 'Terms of Services',
       onPress: () => {
-        Linking.openURL('https://magicwallet.org/terms').then(r => r);
+        Linking.openURL(WEBSITE + '/terms').then(r => r);
       },
     },
     {
       title: 'Privacy Policy',
       onPress: () => {
-        Linking.openURL('https://magicwallet.org/privacy').then(r => r);
+        Linking.openURL(WEBSITE + '/privacy').then(r => r);
       },
     },
     {
       title: 'View Source Code',
       onPress: () => {
-        Linking.openURL('https://github.com/magicwallet/wallet').then(r => r);
+        Linking.openURL('https://github.com/degenwallet/wallet').then(r => r);
       },
     },
     {
       title: 'Visit Website',
       onPress: () => {
-        Linking.openURL('https://magicwallet.org').then(r => r);
+        Linking.openURL(WEBSITE).then(r => r);
       },
     },
   ];
@@ -51,7 +52,7 @@ export const AboutUsScreen: React.FC<Props<Screen.ABOUT_US>> = ({navigation}) =>
         ListHeaderComponent={
           <View style={styles.header}>
             <Image style={styles.logo} source={require('../../../assets/images/logo.png')} />
-            <Text style={styles.name}>Magic Wallet</Text>
+            <Text style={styles.name}>{DISPLAY_NAME}</Text>
             <Text style={styles.version}>
               Version {DeviceInfo.getVersion()} ({DeviceInfo.getBuildNumber()})
             </Text>

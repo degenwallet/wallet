@@ -1,6 +1,6 @@
 import {ChainProvider} from '../..//chain-provider';
 import {Client} from './client';
-import {Asset, AssetBalance, Chain} from '@magicwallet/chain-types';
+import {Asset, AssetBalance, Chain} from '@degenwallet/chain-types';
 
 export class ChainProviderAptos implements ChainProvider {
   client: Client;

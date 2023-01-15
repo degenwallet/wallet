@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {RootStackParamList} from '@magicwallet/navigation';
+import {RootStackParamList} from '@degenwallet/navigation';
 import {Provider} from 'react-redux';
 import {store, persistor} from './core/store';
 import {Main} from './features/main/screens/Main';

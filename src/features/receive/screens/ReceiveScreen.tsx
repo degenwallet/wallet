@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView, Share, StyleSheet, Text, View} from 'react-native';
-import {Props, Screen} from '@magicwallet/navigation';
-import {Colors, MagicButtonStyle} from '@magicwallet/styles';
+import {Props, Screen} from '@degenwallet/navigation';
+import {Colors, DegenButtonStyle} from '@degenwallet/styles';
 import QRCode from 'react-native-qrcode-svg';
-import {MagicButton, Touchable} from '@magicwallet/core-components';
+import {DegenButton, Touchable} from '@degenwallet/core-components';
 import Clipboard from '@react-native-clipboard/clipboard';
 import {useAppSelector} from '../../../core/hooks';
 import {GetAssetSelector, GetAssetTitle} from '../../../core/selectors/assets-selectors';
 import {GetCurrentWallet, GetCurrentWalletAccount} from '../../../core/selectors/wallets-selectors';
-import {AssetTypeList} from '@magicwallet/chain-types';
+import {AssetTypeList} from '@degenwallet/chain-types';
 
 export const ReceiveScreen: React.FC<Props<Screen.RECEIVE>> = ({navigation, route}) => {
   const state = useAppSelector(s => s);
@@ -57,9 +57,9 @@ export const ReceiveScreen: React.FC<Props<Screen.RECEIVE>> = ({navigation, rout
       </View>
 
       <View style={styles.share}>
-        <MagicButton
+        <DegenButton
           title={'Share address'}
-          style={MagicButtonStyle.normal}
+          style={DegenButtonStyle.normal}
           onPress={_ => onShare(currentAccount.address)}
         />
       </View>

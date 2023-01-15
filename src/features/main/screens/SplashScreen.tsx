@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import {Colors} from '@magicwallet/styles';
+import {Colors} from '@degenwallet/styles';
 
 export const SplashScreen: () => React.ReactElement = () => {
   // const dispatch = useDispatch();

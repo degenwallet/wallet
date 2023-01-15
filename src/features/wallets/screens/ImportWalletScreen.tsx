@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
-import {Props, Screen} from '@magicwallet/navigation';
-import {Colors, MagicButtonStyle} from '@magicwallet/styles';
-import {MagicButton} from '@magicwallet/views';
+import {Props, Screen} from '@degenwallet/navigation';
+import {Colors, DegenButtonStyle} from '@degenwallet/styles';
+import {DegenButton} from '@degenwallet/views';
 import {walletsAddWallet} from '../../../core/reducers/wallets';
 import {useAppDispatch, useAppSelector} from '../../../core/hooks';
-import {Asset, Chain} from '@magicwallet/chain-types';
+import {Asset, Chain} from '@degenwallet/chain-types';
 import {ChainView} from '../ChainView';
 import {GetAssetResource} from '../../../assets/asset-resource';
 import {walletName} from '../../../core/selectors/wallets-selectors';
@@ -55,8 +55,8 @@ export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navig
         placeholderTextColor={Colors.DARK_GRAY}
       />
       <View style={styles.footer}>
-        <MagicButton
-          style={MagicButtonStyle.normal}
+        <DegenButton
+          style={DegenButtonStyle.normal}
           title={'Import Wallet'}
           onPress={() => {
             dispatch(walletsAddWallet(name, selectedChain, value)).then(_ => {

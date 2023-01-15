@@ -1,17 +1,17 @@
 import {GestureResponderEvent, StyleSheet, Text} from 'react-native';
 import React from 'react';
-import {Colors, FontWeight, MagicButtonStyle} from '@magicwallet/styles';
-import {Touchable} from '@magicwallet/core-components';
+import {Colors, FontWeight, DegenButtonStyle} from '@degenwallet/styles';
+import {Touchable} from '@degenwallet/core-components';
 
-export interface MagicButtonProps {
+export interface DegenButtonProps {
   title: string;
-  style: MagicButtonStyle;
+  style: DegenButtonStyle;
   onPress?: ((event: GestureResponderEvent) => void) | undefined;
 }
 
-export class MagicButton extends React.Component<MagicButtonProps> {
+export class DegenButton extends React.Component<DegenButtonProps> {
   render() {
-    let buttonStyle = MagicButtonStyle.getStyle(this.props.style);
+    let buttonStyle = DegenButtonStyle.getStyle(this.props.style);
     return (
       <Touchable
         style={{

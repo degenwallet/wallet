@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {HeaderOptions, RootStack, Screen, SettingsStack} from '@magicwallet/navigation';
+import {HeaderOptions, RootStack, Screen, SettingsStack} from '@degenwallet/navigation';
 import {
   AboutUsScreen,
   CommunityScreen,

@@ -1,4 +1,4 @@
-import {ChainList} from '@magicwallet/chain-types';
+import {ChainList} from '@degenwallet/chain-types';
 import {ProviderFactory} from '../src/provider-factory';
 
 it('map return assets list correctly', () => {

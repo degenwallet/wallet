@@ -1,6 +1,6 @@
-import {Account} from '@magicwallet/types';
-import {Asset, Chain} from '@magicwallet/chain-types';
-import {ChainProvider} from '@magicwallet/chain-providers';
+import {Account} from '@degenwallet/types';
+import {Asset, Chain} from '@degenwallet/chain-types';
+import {ChainProvider} from '@degenwallet/chain-providers';
 import {ProviderFactory} from './provider-factory';
 
 export class AssetService {

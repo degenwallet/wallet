@@ -1,4 +1,4 @@
-import {Asset, AssetBalance} from '@magicwallet/chain-types';
+import {Asset, AssetBalance} from '@degenwallet/chain-types';
 
 export interface ChainProvider {
   getBalances(address: string, assets: Asset[]): Promise<AssetBalance[]>;

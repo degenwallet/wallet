@@ -1,4 +1,4 @@
-import {Chain} from '@magicwallet/chain-types';
+import {Chain} from '@degenwallet/chain-types';
 import Nodes from './nodes.json';
 
 export class Node {

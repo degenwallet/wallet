@@ -1,6 +1,6 @@
 import {Mapper} from '../src/mapper';
 import {ProviderName} from '../src/fiat-provider';
-import {Asset, Chain} from '@magicwallet/chain-types';
+import {Asset, Chain} from '@degenwallet/chain-types';
 
 it('map elements correctly', () => {
   expect(Mapper.getSymbol(new Asset(Chain.BNB_CHAIN, ''), ProviderName.MOONPAY)).toBe('bnb');

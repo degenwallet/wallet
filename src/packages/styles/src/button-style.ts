@@ -1,13 +1,13 @@
 import {ColorValue} from 'react-native';
 import {Colors} from './colors';
 
-export enum MagicButtonStyle {
+export enum DegenButtonStyle {
   normal,
   light,
   destruction,
 }
 
-export enum MagicButtonSize {
+export enum DegenButtonSize {
   SMALL,
   NORMAL,
   LARGE,
@@ -23,14 +23,14 @@ export class SetStyle {
   }
 }
 
-export namespace MagicButtonStyle {
-  export function getStyle(style: MagicButtonStyle): SetStyle {
+export namespace DegenButtonStyle {
+  export function getStyle(style: DegenButtonStyle): SetStyle {
     switch (style) {
-      case MagicButtonStyle.normal:
+      case DegenButtonStyle.normal:
         return new SetStyle(Colors.LIGHT_BLACK, Colors.BLUE);
-      case MagicButtonStyle.light:
+      case DegenButtonStyle.light:
         return new SetStyle(Colors.BLACK, Colors.LIGHT_BLACK);
-      case MagicButtonStyle.destruction:
+      case DegenButtonStyle.destruction:
         return new SetStyle(Colors.RED_DARK, Colors.RED);
     }
   }

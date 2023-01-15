@@ -1,9 +1,9 @@
 import React from 'react';
 import {FlatList, SafeAreaView, StyleSheet} from 'react-native';
-import {Props, Screen} from '@magicwallet/navigation';
-import {Colors, DefaultStyles, FontWeight} from '@magicwallet/styles';
-import {FormListItem} from '@magicwallet/views';
-import {CurrencyList} from '@magicwallet/types';
+import {Props, Screen} from '@degenwallet/navigation';
+import {Colors, DefaultStyles, FontWeight} from '@degenwallet/styles';
+import {FormListItem} from '@degenwallet/views';
+import {CurrencyList} from '@degenwallet/types';
 import {settingsChangeCurrency} from '../../../core/reducers/settings';
 import {useAppDispatch} from '../../../core/hooks';
 

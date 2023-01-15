@@ -1,5 +1,5 @@
 import {Dispatch} from 'redux';
-import {Currency} from '@magicwallet/types';
+import {Currency} from '@degenwallet/types';
 
 const DefaultCurrency = Currency.USD;
 

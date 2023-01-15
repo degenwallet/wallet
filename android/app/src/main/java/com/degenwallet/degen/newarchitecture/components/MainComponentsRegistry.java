@@ -1,4 +1,4 @@
-package org.magicwallet.wallet.newarchitecture.components;
+package com.degenwallet.wallet.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

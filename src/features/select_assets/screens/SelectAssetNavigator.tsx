@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {HeaderOptions, Screen, SelectAssetStack, SelectAssetType} from '@magicwallet/navigation';
+import {HeaderOptions, Screen, SelectAssetStack, SelectAssetType} from '@degenwallet/navigation';
 import {BuyCryptoScreen, ReceiveScreen, SelectAssetScreen} from '../../../core/screens';
 import {Image, Platform, TouchableOpacity} from 'react-native';
 

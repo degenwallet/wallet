@@ -1,7 +1,7 @@
-import {Asset, AssetBalance, Chain} from '@magicwallet/chain-types';
-import {Account} from '@magicwallet/types';
+import {Asset, AssetBalance, Chain} from '@degenwallet/chain-types';
+import {Account} from '@degenwallet/types';
 import {ProviderFactory} from './provider-factory';
-import {ChainProvider} from '@magicwallet/chain-providers';
+import {ChainProvider} from '@degenwallet/chain-providers';
 
 export class BalanceService {
   providers: Map<Chain, ChainProvider>;

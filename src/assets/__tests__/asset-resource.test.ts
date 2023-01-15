@@ -1,5 +1,5 @@
 import {GetAssetResource, GetAssetResources} from '../asset-resource';
-import {Asset, AssetType, Chain, ChainList} from '@magicwallet/chain-types';
+import {Asset, AssetType, Chain, ChainList} from '@degenwallet/chain-types';
 
 describe('test asset exist in asset resource', () => {
   test('token asset', () => {

@@ -1,6 +1,6 @@
 import {Quote, quoteSymbolSplit, Response} from './model';
 import {QuoteRequest} from '../../model';
-import {fetchJSON} from '@magicwallet/client';
+import {fetchJSON} from '@degenwallet/client';
 
 // documentation: https://docs.transak.com/
 

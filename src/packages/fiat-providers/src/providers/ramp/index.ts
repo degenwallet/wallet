@@ -39,7 +39,7 @@ export class RampProvider implements FiatProvider {
       defaultAsset: quoteRequest.cryptoCurrency,
       fiatCurrency: quoteRequest.fiatCurrency,
       fiatValue: String(quoteRequest.amount),
-      hostAppName: 'Magic Wallet',
+      hostAppName: 'Degen Wallet',
       hostApiKey: this.client.api_key,
       userAddress: quoteRequest.address,
     }).toString();

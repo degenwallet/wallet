@@ -1,5 +1,5 @@
 import {Asset} from './asset';
-import {Price} from '@magicwallet/types';
+import {Price} from '@degenwallet/types';
 
 export class AssetBalance {
   asset: Asset;

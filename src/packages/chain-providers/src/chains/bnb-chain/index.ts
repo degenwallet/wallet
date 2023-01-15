@@ -1,8 +1,8 @@
 import {ChainProvider} from '../../chain-provider';
 import {NodeInfo} from './model';
 import {Client} from './client';
-import {Asset, AssetBalance, AssetType, Chain} from '@magicwallet/chain-types';
-import {toBigNumber} from '@magicwallet/types';
+import {Asset, AssetBalance, AssetType, Chain} from '@degenwallet/chain-types';
+import {toBigNumber} from '@degenwallet/types';
 
 const BNB_SYMBOL = 'BNB';
 

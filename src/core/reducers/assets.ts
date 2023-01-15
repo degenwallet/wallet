@@ -1,7 +1,7 @@
 import {Dispatch} from 'redux';
-import {Asset, AssetBalance} from '@magicwallet/chain-types';
+import {Asset, AssetBalance} from '@degenwallet/chain-types';
 import {AssetResource, AssetResources, GetAssetResource} from '../../assets/asset-resource';
-import {AssetPrice, FiatValue, fromBigNumber, Price, Wallet} from '@magicwallet/types';
+import {AssetPrice, FiatValue, fromBigNumber, Price, Wallet} from '@degenwallet/types';
 
 export type AssetStore = {
   balance: string;

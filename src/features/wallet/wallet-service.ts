@@ -6,12 +6,12 @@ import {
   marketUpdatePrices,
   marketUpdateTotalFiatValue,
 } from '../../core/reducers/assets';
-import {Asset, AssetBalance, Chain} from '@magicwallet/chain-types';
+import {Asset, AssetBalance, Chain} from '@degenwallet/chain-types';
 import {AppDispatch} from '../../core/store';
 import {GetAssetResources} from '../../assets/asset-resource';
-import {MarketFetcher, Price} from '@magicwallet/market-provider';
-import {AssetService, BalanceService} from '@magicwallet/chain-services';
-import {Wallet} from '@magicwallet/types';
+import {MarketFetcher, Price} from '@degenwallet/market-provider';
+import {AssetService, BalanceService} from '@degenwallet/chain-services';
+import {Wallet} from '@degenwallet/types';
 
 export class WalletService {
   marketProvider = new MarketFetcher();

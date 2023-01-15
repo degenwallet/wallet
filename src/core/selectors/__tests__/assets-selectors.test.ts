@@ -1,4 +1,4 @@
-import {AssetInfo} from '@magicwallet/chain-types';
+import {AssetInfo} from '@degenwallet/chain-types';
 import {GetAssetTitle} from '../assets-selectors';
 
 it('test GetAssetTitle', () => {

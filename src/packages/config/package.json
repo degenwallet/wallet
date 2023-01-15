@@ -1,9 +1,9 @@
 {
-  "name": "@magicwallet/config",
+  "name": "@degenwallet/config",
   "version": "0.0.0",
   "description": "",
   "author": "tim <104884878@users.noreply.github.com",
-  "homepage": "https://github.com/magicwallet/wallet#readme",
+  "homepage": "https://github.com/degenwallet/wallet#readme",
   "license": "ISC",
   "main": "src/index.ts",
   "directories": {
@@ -11,19 +11,19 @@
     "test": "__tests__"
   },
   "dependencies": {
-    "@magicwallet/chain-types": "*"
+    "@degenwallet/chain-types": "*"
   },
   "files": [
     "src"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/magicwallet/wallet.git"
+    "url": "git+https://github.com/degenwallet/wallet.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
-    "url": "https://github.com/magicwallet/wallet/issues"
+    "url": "https://github.com/degenwallet/wallet/issues"
   }
 }

@@ -1,5 +1,5 @@
 import {Node} from '../src/node';
-import {Chain, ChainList} from '@magicwallet/chain-types';
+import {Chain, ChainList} from '@degenwallet/chain-types';
 import Nodes from '../src/nodes.json';
 
 describe('test node exist in nodes list', () => {

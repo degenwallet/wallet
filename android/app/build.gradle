@@ -134,7 +134,7 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "org.magicwallet.wallet"
+        applicationId "com.degenwallet.wallet"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode Integer.valueOf(System.getenv("ANDROID_APP_VERSION_CODE") ?: 1)
@@ -157,7 +157,7 @@ android {
                     cppFlags "-std=c++17"
                     // Make sure this target name is the same you specify inside the
                     // src/main/jni/Android.mk file for the `LOCAL_MODULE` variable.
-                    targets "magic_appmodules"
+                    targets "degen_appmodules"
                 }
             }
             if (!enableSeparateBuildPerCPUArchitecture) {
@@ -231,7 +231,7 @@ android {
             keyPassword System.getenv("ANDROID_KEYSTORE_PASSWORD")
         }
     }
-    namespace 'org.magicwallet.wallet'
+    namespace 'com.degenwallet.wallet'
     buildTypes {
         debug {
             signingConfig signingConfigs.debug

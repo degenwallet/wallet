@@ -1,10 +1,10 @@
 import React from 'react';
 import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
-import {Colors, Spacing} from '@magicwallet/styles';
-import {QuoteResult} from '@magicwallet/fiat-providers';
-import {FormListItem} from '@magicwallet/views';
-import {AssetItem} from '@magicwallet/chain-types';
-import {round} from '@magicwallet/types';
+import {Colors, Spacing} from '@degenwallet/styles';
+import {QuoteResult} from '@degenwallet/fiat-providers';
+import {FormListItem} from '@degenwallet/views';
+import {AssetItem} from '@degenwallet/chain-types';
+import {round} from '@degenwallet/types';
 
 class ProviderViewProps {
   quotes: Array<QuoteResult>;

@@ -1,5 +1,5 @@
 import {AppRegistry} from 'react-native';
 import App from './src/App';
-import {NAME} from '@magicwallet/config';
+import {NAME} from '@degenwallet/config';
 
 AppRegistry.registerComponent(NAME, () => App);

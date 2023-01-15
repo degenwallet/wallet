@@ -1,8 +1,8 @@
 import React from 'react';
 import FastImage from 'react-native-fast-image';
 import {Image, ImageSourcePropType, StyleSheet, Text, View, ViewStyle} from 'react-native';
-import {Colors} from '@magicwallet/styles';
-import {Touchable} from '@magicwallet/core-components';
+import {Colors} from '@degenwallet/styles';
+import {Touchable} from '@degenwallet/core-components';
 
 export class FormListItemProps {
   title: string;
@@ -22,13 +22,10 @@ export enum FormListImageType {
 
 export class FormListItem extends React.Component<FormListItemProps> {
   getRightImage(type: FormListImageType): ImageSourcePropType {
-    console.log('getRightImage: ', type);
     switch (type) {
       case FormListImageType.chevron:
-        console.log('getRightImage: chevron.png');
         return require('./assets/chevron.png');
       case FormListImageType.info:
-        console.log('getRightImage: info.png');
         return require('./assets/info.png');
     }
   }

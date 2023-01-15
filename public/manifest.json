@@ -1,10 +1,10 @@
 {
-  "name": "Magic Wallet",
-  "description": "Magic Wallet Browser Extension",
+  "name": "Degen Wallet",
+  "description": "Degen Wallet Browser Extension",
   "version": "1.0",
   "manifest_version": 3,
   "action": {
-    "default_title": "Magic",
+    "default_title": "Degen",
     "default_icon": "logo192.png",
     "default_popup": "index.html"
   },

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {HeaderOptions, RootStack, Screen, ScreenNavigator, SettingsStack, Theme} from '@magicwallet/navigation';
+import {HeaderOptions, RootStack, Screen, ScreenNavigator, SettingsStack, Theme} from '@degenwallet/navigation';
 import {Image, Platform, TouchableOpacity} from 'react-native';
 import {
   BuyCryptoScreen,

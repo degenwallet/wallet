@@ -1,5 +1,5 @@
 import {TWMarketProvider} from './providers/trustwallet';
-import {Asset} from '@magicwallet/chain-types';
+import {Asset} from '@degenwallet/chain-types';
 import {Prices} from './model';
 
 export class MarketFetcher {

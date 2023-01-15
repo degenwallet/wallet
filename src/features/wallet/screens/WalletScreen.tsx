@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
 import {FlatList, RefreshControl, SafeAreaView, StyleSheet} from 'react-native';
-import {Props, Screen, ScreenNavigator, SelectAssetType} from '@magicwallet/navigation';
-import {AssetListItem, WalletHeader} from '@magicwallet/views';
-import {Asset} from '@magicwallet/chain-types';
-import {Colors} from '@magicwallet/styles';
-import {Wallet} from '@magicwallet/types';
-import {WalletHeaderAction} from '@magicwallet/views/src/WalletHeader';
+import {Props, Screen, ScreenNavigator, SelectAssetType} from '@degenwallet/navigation';
+import {AssetListItem, WalletHeader} from '@degenwallet/views';
+import {Asset} from '@degenwallet/chain-types';
+import {Colors} from '@degenwallet/styles';
+import {Wallet} from '@degenwallet/types';
+import {WalletHeaderAction} from '@degenwallet/views/src/WalletHeader';
 import {useAppDispatch, useAppSelector} from '../../../core/hooks';
 import {GetAssetsSelector, GetTotalFiatValueSelector} from '../../../core/selectors/assets-selectors';
 import {GetCurrentWallet} from '../../../core/selectors/wallets-selectors';

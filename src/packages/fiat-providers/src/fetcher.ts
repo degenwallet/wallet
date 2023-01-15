@@ -1,6 +1,6 @@
 import {QuoteResult} from './model';
 import {FiatProvider} from './fiat-provider';
-import {Asset} from '@magicwallet/chain-types';
+import {Asset} from '@degenwallet/chain-types';
 import {Mapper} from './mapper';
 import {NetworkInfo} from 'react-native-network-info';
 

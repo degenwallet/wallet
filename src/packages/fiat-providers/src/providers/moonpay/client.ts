@@ -1,6 +1,6 @@
 import {BuyQuote, IpAddressCheck} from './model';
 import {ProviderError, QuoteRequest} from '../../model';
-import {fetchJSON} from '@magicwallet/client';
+import {fetchJSON} from '@degenwallet/client';
 
 // documentation: https://dashboard.moonpay.com/api_reference/client_side_api
 

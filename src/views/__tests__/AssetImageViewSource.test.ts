@@ -1,5 +1,5 @@
 import {AssetImageViewSource} from '../AssetImageViewSource';
-import {Asset, Chain, ChainList} from '@magicwallet/chain-types';
+import {Asset, Chain, ChainList} from '@degenwallet/chain-types';
 
 describe('test source', () => {
   const source = new AssetImageViewSource();

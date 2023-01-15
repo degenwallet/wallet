@@ -1,5 +1,5 @@
 import {DefaultTheme} from '@react-navigation/native';
-import {Colors} from '@magicwallet/styles';
+import {Colors} from '@degenwallet/styles';
 
 export const HeaderOptions = {
   headerTitleStyle: {

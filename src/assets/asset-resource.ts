@@ -1,4 +1,4 @@
-import {Asset, Chain} from '@magicwallet/chain-types';
+import {Asset, Chain} from '@degenwallet/chain-types';
 
 export type AssetResourcesList = {
   assets: AssetResources;

@@ -4,7 +4,7 @@ import {Storage} from 'redux-persist';
 const storage = new MMKV({
   id: 'redux_state',
   // TODO: Use value from keychain in the future. Since it's a shared storage, not critical for now
-  encryptionKey: 'magic-wallet-key',
+  encryptionKey: 'degen-wallet-key',
 });
 
 export const reduxStorage: Storage = {

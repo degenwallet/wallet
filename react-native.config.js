@@ -4,9 +4,9 @@ module.exports = {
       sourceDir: './ios',
     },
     android: {
-      appName: 'Magic',
+      appName: 'Degen',
       sourceDir: './android',
-      packageName: 'org.magicwallet.wallet',
+      packageName: 'com.degenwallet.wallet',
     },
   },
 };

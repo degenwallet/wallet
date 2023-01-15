@@ -48,7 +48,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   RCTSetImageCacheLimits(12*1024*1024, 512*1024*1024);
 
   NSDictionary *initProps = [self prepareInitialProps];
-  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"magic", initProps);
+  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"degen", initProps);
 
 // Magic
 //  if (@available(iOS 13.0, *)) {

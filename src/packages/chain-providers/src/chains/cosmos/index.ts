@@ -1,7 +1,7 @@
 import {ChainProvider} from '../../chain-provider';
 import {BlockResponse} from './model';
 import {Client} from './client';
-import {Asset, AssetBalance, Chain} from '@magicwallet/chain-types';
+import {Asset, AssetBalance, Chain} from '@degenwallet/chain-types';
 
 export {Denom} from './denom';
 

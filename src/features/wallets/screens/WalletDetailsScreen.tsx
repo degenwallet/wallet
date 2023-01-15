@@ -1,12 +1,12 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
-import {Props, Screen} from '@magicwallet/navigation';
-import {Colors, MagicButtonStyle, Spacing} from '@magicwallet/styles';
-import {MagicButton} from '@magicwallet/views';
+import {Props, Screen} from '@degenwallet/navigation';
+import {Colors, DegenButtonStyle, Spacing} from '@degenwallet/styles';
+import {DegenButton} from '@degenwallet/views';
 import {walletsDeleteWallet, walletsRenameWallet} from '../../../core/reducers/wallets';
 import {useAppDispatch, useAppSelector} from '../../../core/hooks';
 import {getWalletSelector} from '../../../core/selectors/wallets-selectors';
-import {Wallet} from '@magicwallet/types';
+import {Wallet} from '@degenwallet/types';
 
 export const WalletDetailsScreen: React.FC<Props<Screen.WALLET_DETAILS>> = ({navigation, route}) => {
   const dispatch = useAppDispatch();
@@ -47,7 +47,7 @@ export const WalletDetailsScreen: React.FC<Props<Screen.WALLET_DETAILS>> = ({nav
           backgroundColor: Colors.BLACK,
           padding: Spacing.screen.padding,
         }}>
-        <MagicButton style={MagicButtonStyle.destruction} title={'Delete Wallet'} onPress={_ => handleDelete(wallet)} />
+        <DegenButton style={DegenButtonStyle.destruction} title={'Delete Wallet'} onPress={_ => handleDelete(wallet)} />
       </View>
     </SafeAreaView>
   );

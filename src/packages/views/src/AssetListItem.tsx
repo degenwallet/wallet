@@ -1,11 +1,11 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {AssetItem} from '@magicwallet/chain-types';
-import {Colors} from '@magicwallet/styles';
-import {Touchable} from '@magicwallet/core-components';
-import {format, fromBigNumber} from '@magicwallet/types';
+import {AssetItem} from '@degenwallet/chain-types';
+import {Colors} from '@degenwallet/styles';
+import {Touchable} from '@degenwallet/core-components';
+import {format, fromBigNumber} from '@degenwallet/types';
 import {FiatBalanceFormatter} from './fiat-balance-formatter';
-import {FontWeight} from '@magicwallet/styles/src/font-weight';
+import {FontWeight} from '@degenwallet/styles/src/font-weight';
 import {AssetImageView} from '../../../views/AssetImageView';
 
 export interface AssetListItemProps {

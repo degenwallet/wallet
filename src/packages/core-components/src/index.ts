@@ -1,2 +1,2 @@
 export {Touchable} from './Touchable';
-export {MagicButton} from './MagicButton';
+export {DegenButton} from './DegenButton';

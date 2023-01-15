@@ -1,4 +1,4 @@
-import {Chain} from '@magicwallet/chain-types';
+import {Chain} from '@degenwallet/chain-types';
 import {
   ChainProvider,
   ChainProviderAptos,
@@ -7,8 +7,8 @@ import {
   ChainProviderEVM,
   ChainProviderSolana,
   Denom,
-} from '@magicwallet/chain-providers';
-import {Node} from '@magicwallet/config';
+} from '@degenwallet/chain-providers';
+import {Node} from '@degenwallet/config';
 
 export class ProviderFactory {
   static setup(): Map<Chain, ChainProvider> {

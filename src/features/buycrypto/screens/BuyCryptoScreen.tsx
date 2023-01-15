@@ -1,16 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import {Linking, SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
-import {Props, Screen} from '@magicwallet/navigation';
-import {Colors, FontWeight, MagicButtonStyle} from '@magicwallet/styles';
-import {FiatProvidersFactory, QuoteFetcher, QuoteResult} from '@magicwallet/fiat-providers';
-import {MagicButton} from '@magicwallet/views';
+import {Props, Screen} from '@degenwallet/navigation';
+import {Colors, FontWeight, DegenButtonStyle} from '@degenwallet/styles';
+import {FiatProvidersFactory, QuoteFetcher, QuoteResult} from '@degenwallet/fiat-providers';
+import {DegenButton} from '@degenwallet/views';
 import {GetCurrencySelector} from '../../../core/selectors/settings-selectors';
 import {useAppSelector} from '../../../core/hooks';
 import {GetCurrentWallet, GetCurrentWalletAccount} from '../../../core/selectors/wallets-selectors';
 import {GetAssetSelector, GetAssetTitle} from '../../../core/selectors/assets-selectors';
 import {BuyButtons} from '../BuyButtons';
 import {ProviderView} from '../ProviderView';
-import {round} from '@magicwallet/types';
+import {round} from '@degenwallet/types';
 
 export const BuyCryptoScreen: React.FC<Props<Screen.BUY_CRYPTO>> = ({route, navigation}) => {
   const {asset} = route.params;
@@ -94,10 +94,10 @@ export const BuyCryptoScreen: React.FC<Props<Screen.BUY_CRYPTO>> = ({route, navi
         }}
         //TODO: Change button state to disabled instead of pointerEvents
         pointerEvents={quotes.length === 0 ? 'none' : 'auto'}>
-        <MagicButton
+        <DegenButton
           onPress={_ => buyAction(quote)}
           title={`Buy ${assetItem.info.symbol}`}
-          style={MagicButtonStyle.normal}
+          style={DegenButtonStyle.normal}
         />
       </View>
     </SafeAreaView>

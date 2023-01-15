@@ -1,11 +1,11 @@
 import React from 'react';
 import {FlatList, SafeAreaView, StyleSheet} from 'react-native';
-import {Props, Screen} from '@magicwallet/navigation';
-import {Colors, DefaultStyles} from '@magicwallet/styles';
-import {FormListItem} from '@magicwallet/views';
+import {Props, Screen} from '@degenwallet/navigation';
+import {Colors, DefaultStyles} from '@degenwallet/styles';
+import {FormListItem} from '@degenwallet/views';
 import {useAppSelector} from '../../../core/hooks';
 import {GetCurrentWallet} from '../../../core/selectors/wallets-selectors';
-import {FormListImageType} from '@magicwallet/views/src/form/FormListItem';
+import {FormListImageType} from '@degenwallet/views/src/form/FormListItem';
 
 export const SettingsScreen: React.FC<Props<Screen.SETTINGS>> = ({navigation}) => {
   const state = useAppSelector(s => s);

@@ -1,4 +1,4 @@
-import {Chain} from '@magicwallet/chain-types';
+import {Chain} from '@degenwallet/chain-types';
 import {Asset} from '../src/asset';
 import {AssetType} from '../src/asset-type';
 

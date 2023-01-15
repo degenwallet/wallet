@@ -1,7 +1,7 @@
 import {createNativeStackNavigator, NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RouteProp} from '@react-navigation/core';
-import {Asset, Chain} from '@magicwallet/chain-types';
-import {Wallet} from '@magicwallet/types';
+import {Asset, Chain} from '@degenwallet/chain-types';
+import {Wallet} from '@degenwallet/types';
 
 export {Screen} from './screens';
 export {ScreenNavigator} from './navigator';

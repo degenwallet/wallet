@@ -1,6 +1,6 @@
-import {Asset, AssetImageFormatter} from '@magicwallet/chain-types';
+import {Asset, AssetImageFormatter} from '@degenwallet/chain-types';
 import React from 'react';
-import {AssetsEndpoints} from '@magicwallet/config';
+import {AssetsEndpoints} from '@degenwallet/config';
 import FastImage, {ImageStyle} from 'react-native-fast-image';
 import {StyleProp} from 'react-native';
 import {AssetImageViewSource} from './AssetImageViewSource';

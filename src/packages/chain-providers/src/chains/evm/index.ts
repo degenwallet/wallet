@@ -1,6 +1,6 @@
 import {ChainProvider} from '../../chain-provider';
-import {Asset, AssetBalance, Chain} from '@magicwallet/chain-types';
-import {JSOPRPCClient} from '@magicwallet/json-rpc';
+import {Asset, AssetBalance, Chain} from '@degenwallet/chain-types';
+import {JSOPRPCClient} from '@degenwallet/json-rpc';
 
 enum METHOD {
   ETH_GET_BALANCE = 'eth_getBalance',

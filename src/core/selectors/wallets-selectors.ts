@@ -1,8 +1,8 @@
 import {createSelector} from '@reduxjs/toolkit';
 import {AppState} from '../store';
 import {AssetResource} from '../../assets/asset-resource';
-import {Wallet} from '@magicwallet/types';
-import {Chain} from '@magicwallet/chain-types';
+import {Wallet} from '@degenwallet/types';
+import {Chain} from '@degenwallet/chain-types';
 
 const getWallet = (state: AppState, wallet_id: string) => state.wallets.wallets.find(el => el.id === wallet_id)!;
 const getWalletAccount = (state: AppState, value: {wallet: Wallet; chain: Chain}) => {

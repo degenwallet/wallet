@@ -1,26 +1,27 @@
 import React from 'react';
 import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import {Props, Screen} from '@magicwallet/navigation';
-import {Colors, FontWeight, MagicButtonStyle} from '@magicwallet/styles';
-import {MagicButton} from '@magicwallet/core-components/src/MagicButton';
+import {Props, Screen} from '@degenwallet/navigation';
+import {Colors, FontWeight, DegenButtonStyle} from '@degenwallet/styles';
+import {DegenButton} from '@degenwallet/core-components/src/DegenButton';
+import { DISPLAY_NAME } from "@degenwallet/config";
 
 export const WelcomeScreen: React.FC<Props<Screen.WELCOME>> = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Image style={styles.headerImage} source={require('../../../assets/images/logo.png')} />
-        <Text style={styles.headerTitle}>Magic Wallet</Text>
+        <Text style={styles.headerTitle}>{DISPLAY_NAME}</Text>
         <Text style={styles.headerDescription}>Experience the magic of DeFi & NTFs</Text>
       </View>
       <View style={styles.footer}>
-        <MagicButton
-          style={MagicButtonStyle.normal}
+        <DegenButton
+          style={DegenButtonStyle.normal}
           title={'Create a new wallet'}
           onPress={() => navigation.navigate(Screen.IMPORT_WALLET)}
         />
         <View style={{margin: 10}} />
-        <MagicButton
-          style={MagicButtonStyle.light}
+        <DegenButton
+          style={DegenButtonStyle.light}
           title={'I already have a wallet'}
           onPress={() => navigation.navigate(Screen.IMPORT_WALLET)}
         />

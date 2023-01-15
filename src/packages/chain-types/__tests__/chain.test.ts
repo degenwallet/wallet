@@ -1,4 +1,4 @@
-import {Chain, ChainList} from '@magicwallet/chain-types';
+import {Chain, ChainList} from '@degenwallet/chain-types';
 
 it('test ChainList', () => {
   expect(ChainList).toStrictEqual([

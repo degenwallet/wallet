@@ -1,6 +1,6 @@
 import {BuyRate, Country, Data} from './model';
 import {ProviderError, QuoteRequest} from '../../model';
-import {fetchJSON} from '@magicwallet/client';
+import {fetchJSON} from '@degenwallet/client';
 
 // documentation: https://widget.mercuryo.io/docs.html
 

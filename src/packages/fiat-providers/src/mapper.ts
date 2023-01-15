@@ -1,6 +1,6 @@
 import FiatCryptoAssociations from './fiat_crypto_associations.json';
 import {ProviderName} from './fiat-provider';
-import {Asset} from '@magicwallet/chain-types';
+import {Asset} from '@degenwallet/chain-types';
 
 const fiatCryptoAssociations: {[key: string]: MapperItem[]} = FiatCryptoAssociations;
 

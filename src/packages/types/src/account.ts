@@ -1,4 +1,4 @@
-import {Chain} from '@magicwallet/chain-types';
+import {Chain} from '@degenwallet/chain-types';
 
 export class Account {
   chain: Chain;
