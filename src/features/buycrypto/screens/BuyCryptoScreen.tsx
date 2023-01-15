@@ -6,7 +6,7 @@ import {FiatProvidersFactory, QuoteFetcher, QuoteResult} from '@magicwallet/fiat
 import {MagicButton} from '@magicwallet/views';
 import {GetCurrencySelector} from '../../../core/selectors/settings-selectors';
 import {useAppSelector} from '../../../core/hooks';
-import {GetCurrentWallet, GetCurrentWalletAccount} from '../../wallet/selector';
+import {GetCurrentWallet, GetCurrentWalletAccount} from '../../../core/selectors/wallets-selectors';
 import {GetAssetSelector, GetAssetTitle} from '../../../core/selectors/assets-selectors';
 import {BuyButtons} from '../BuyButtons';
 import {ProviderView} from '../ProviderView';

@@ -7,7 +7,7 @@ import {MagicButton, Touchable} from '@magicwallet/core-components';
 import Clipboard from '@react-native-clipboard/clipboard';
 import {useAppSelector} from '../../../core/hooks';
 import {GetAssetSelector, GetAssetTitle} from '../../../core/selectors/assets-selectors';
-import {GetCurrentWallet, GetCurrentWalletAccount} from '../../wallet/selector';
+import {GetCurrentWallet, GetCurrentWalletAccount} from '../../../core/selectors/wallets-selectors';
 import {AssetTypeList} from '@magicwallet/chain-types';
 
 export const ReceiveScreen: React.FC<Props<Screen.RECEIVE>> = ({navigation, route}) => {
@@ -36,7 +36,7 @@ export const ReceiveScreen: React.FC<Props<Screen.RECEIVE>> = ({navigation, rout
     <SafeAreaView style={styles.container}>
       <View style={styles.qr_container}>
         <View style={styles.qr_code}>
-          <QRCode value={currentAccount.address} size={200} />
+          <QRCode value={currentAccount.address} size={220} />
         </View>
         <View style={styles.address_container}>
           <Text numberOfLines={1} style={styles.address_text} ellipsizeMode={'middle'}>
@@ -88,8 +88,8 @@ const styles = StyleSheet.create({
   address_container: {
     flexDirection: 'row',
     marginTop: 24,
-    minWidth: 220,
-    maxWidth: 280,
+    minWidth: 240,
+    maxWidth: 320,
     borderRadius: 6,
     borderWidth: 0.5,
     borderColor: Colors.VERY_LIGHT_BLACK,

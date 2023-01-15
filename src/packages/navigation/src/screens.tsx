@@ -8,6 +8,7 @@ export const enum Screen {
   BUY_CRYPTO = 'BuyCryptoScreen',
   SETTINGS = 'SettingsScreen',
   WALLETS = 'WalletsScreen',
+  WALLET_DETAILS = 'WalletDetailsScreen',
   ABOUT_US = 'AboutUsScreen',
   SELECT_ASSET = 'SelectAssetScreen',
   SELECT_CHAIN = 'SelectChainScreen',

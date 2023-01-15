@@ -5,7 +5,7 @@ import {Colors} from '@magicwallet/styles';
 import {AssetListItem} from '@magicwallet/views';
 import {GetAssetsSelector} from '../../../core/selectors/assets-selectors';
 import {useAppSelector} from '../../../core/hooks';
-import {GetCurrentWallet} from '../../wallet/selector';
+import {GetCurrentWallet} from '../../../core/selectors/wallets-selectors';
 import {Asset} from '@magicwallet/chain-types';
 
 export const SelectAssetScreen: React.FC<Props<Screen.SELECT_ASSET>> = ({route, navigation}) => {

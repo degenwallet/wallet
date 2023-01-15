@@ -31,7 +31,7 @@ export namespace MagicButtonStyle {
       case MagicButtonStyle.light:
         return new SetStyle(Colors.BLACK, Colors.LIGHT_BLACK);
       case MagicButtonStyle.destruction:
-        return new SetStyle(Colors.RED, Colors.LIGHT_BLACK);
+        return new SetStyle(Colors.RED_DARK, Colors.RED);
     }
   }
 }

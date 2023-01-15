@@ -8,7 +8,7 @@ import {useAppDispatch, useAppSelector} from '../../../core/hooks';
 import {Asset, Chain} from '@magicwallet/chain-types';
 import {ChainView} from '../ChainView';
 import {GetAssetResource} from '../../../assets/asset-resource';
-import {walletName} from '../wallets-selector';
+import {walletName} from '../../../core/selectors/wallets-selectors';
 
 export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navigation}) => {
   const [name, onChangeName] = React.useState('');

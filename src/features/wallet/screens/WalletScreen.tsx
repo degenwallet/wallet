@@ -8,7 +8,7 @@ import {Wallet} from '@magicwallet/types';
 import {WalletHeaderAction} from '@magicwallet/views/src/WalletHeader';
 import {useAppDispatch, useAppSelector} from '../../../core/hooks';
 import {GetAssetsSelector, GetTotalFiatValueSelector} from '../../../core/selectors/assets-selectors';
-import {GetCurrentWallet} from '../selector';
+import {GetCurrentWallet} from '../../../core/selectors/wallets-selectors';
 import {GetCurrencySelector} from '../../../core/selectors/settings-selectors';
 import {WalletService} from '../wallet-service';
 

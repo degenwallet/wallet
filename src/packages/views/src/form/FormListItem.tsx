@@ -8,14 +8,35 @@ export class FormListItemProps {
   title: string;
   subtitle?: string;
   onPress?: () => void;
-  isChevronHidden?: boolean;
   image?: ImageSourcePropType;
   imageUri?: string;
   style?: ViewStyle;
+  rightImage?: FormListImageType;
+  onRightPress?: () => void;
+}
+
+export enum FormListImageType {
+  chevron = 1,
+  info,
 }
 
 export class FormListItem extends React.Component<FormListItemProps> {
+  getRightImage(type: FormListImageType): ImageSourcePropType {
+    console.log('getRightImage: ', type);
+    switch (type) {
+      case FormListImageType.chevron:
+        console.log('getRightImage: chevron.png');
+        return require('./assets/chevron.png');
+      case FormListImageType.info:
+        console.log('getRightImage: info.png');
+        return require('./assets/info.png');
+    }
+  }
+
   render() {
+    const paddingLeft = this.props.subtitle !== undefined ? 0 : 16;
+    const rightImage = this.getRightImage(this.props.rightImage || FormListImageType.chevron);
+
     return (
       <Touchable style={{...styles.touch, ...this.props.style}} onPress={this.props.onPress}>
         <View style={{...styles.container, ...this.props.style}}>
@@ -32,10 +53,12 @@ export class FormListItem extends React.Component<FormListItemProps> {
             <Text style={styles.title}>{this.props.title}</Text>
             <Text style={styles.subtitle}>{this.props.subtitle}</Text>
           </View>
-          {!this.props.isChevronHidden ? (
-            <View style={styles.chevron_container}>
-              <Image style={styles.chevron} source={require('./assets/chevron.png')} />
-            </View>
+          {this.props.rightImage ? (
+            <Touchable
+              style={{...styles.touch, ...styles.right_container, ...this.props.style, paddingLeft: paddingLeft}}
+              onPress={this.props.onRightPress}>
+              <Image style={styles.right_container_image} source={rightImage} />
+            </Touchable>
           ) : undefined}
         </View>
       </Touchable>
@@ -50,7 +73,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 6,
     backgroundColor: Colors.LIGHT_BLACK,
-    paddingVertical: 16,
+    minHeight: 54,
   },
   touch: {
     borderRadius: 6,
@@ -86,12 +109,12 @@ const styles = StyleSheet.create({
     color: Colors.GRAY,
     textAlign: 'right',
   },
-  chevron_container: {
+  right_container: {
     alignItems: 'flex-end',
     justifyContent: 'center',
-    marginRight: 16,
+    paddingRight: 16,
   },
-  chevron: {
+  right_container_image: {
     height: 12,
     width: 12,
   },

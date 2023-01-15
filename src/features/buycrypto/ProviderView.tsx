@@ -1,6 +1,6 @@
 import React from 'react';
 import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
-import {Colors} from '@magicwallet/styles';
+import {Colors, Spacing} from '@magicwallet/styles';
 import {QuoteResult} from '@magicwallet/fiat-providers';
 import {FormListItem} from '@magicwallet/views';
 import {AssetItem} from '@magicwallet/chain-types';
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     backgroundColor: Colors.BLACK,
     borderRadius: 8,
-    marginTop: 16,
+    marginTop: Spacing.screen.padding,
     marginHorizontal: 8,
   },
   info_item: {

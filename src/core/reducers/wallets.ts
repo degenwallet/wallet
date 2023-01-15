@@ -36,6 +36,7 @@ enum ACTION {
   ADD_WALLET = 'wallets.add',
   SELECT_WALLET = 'wallets.select',
   DELETE_WALLET = 'wallets.delete',
+  RENAME_WALLET = 'wallets.rename',
 }
 
 interface WalletsStateAddAWallet {
@@ -45,7 +46,7 @@ interface WalletsStateAddAWallet {
 
 interface WalletsStateDeleteWallet {
   type: typeof ACTION.DELETE_WALLET;
-  payload: Wallet;
+  payload: {wallet_id: string};
 }
 
 interface WalletsStateSelectWallet {
@@ -53,7 +54,16 @@ interface WalletsStateSelectWallet {
   payload: Wallet;
 }
 
-type WalletsStateUpdateAction = WalletsStateAddAWallet | WalletsStateDeleteWallet | WalletsStateSelectWallet;
+interface WalletsStateRenameWallet {
+  type: typeof ACTION.RENAME_WALLET;
+  payload: {wallet: Wallet; name: string};
+}
+
+type WalletsStateUpdateAction =
+  | WalletsStateAddAWallet
+  | WalletsStateDeleteWallet
+  | WalletsStateSelectWallet
+  | WalletsStateRenameWallet;
 
 export const walletsAddWallet =
   (name: string, chain: Chain, address: string) => async (dispatch: Dispatch<WalletsStateAddAWallet>) => {
@@ -67,10 +77,10 @@ export const walletsAddWallet =
     });
   };
 
-export const walletsDeleteWallet = (wallet: Wallet) => async (dispatch: Dispatch<WalletsStateDeleteWallet>) => {
+export const walletsDeleteWallet = (wallet_id: string) => async (dispatch: Dispatch<WalletsStateDeleteWallet>) => {
   return dispatch({
     type: ACTION.DELETE_WALLET,
-    payload: wallet,
+    payload: {wallet_id},
   });
 };
 
@@ -80,6 +90,14 @@ export const walletsSelectWallet = (wallet: Wallet) => async (dispatch: Dispatch
     payload: wallet,
   });
 };
+
+export const walletsRenameWallet =
+  (wallet: Wallet, name: string) => async (dispatch: Dispatch<WalletsStateRenameWallet>) => {
+    return dispatch({
+      type: ACTION.RENAME_WALLET,
+      payload: {wallet, name},
+    });
+  };
 
 export default (state = INITIAL_STATE, action: WalletsStateUpdateAction) => {
   switch (action.type) {
@@ -107,9 +125,20 @@ export default (state = INITIAL_STATE, action: WalletsStateUpdateAction) => {
     case ACTION.DELETE_WALLET: {
       return {
         ...state,
-        wallets: [...state.wallets.filter(el => el.id !== action.payload.id)],
+        current: state.wallets[0].id,
+        wallets: [...state.wallets.filter(el => el.id !== action.payload.wallet_id)],
       };
     }
+    case ACTION.RENAME_WALLET:
+      const wallets = state.wallets;
+      const walletIndex = wallets.findIndex(el => el.id === action.payload.wallet.id);
+      const wallet = wallets[walletIndex];
+      wallet.name = action.payload.name;
+      wallets[walletIndex] = wallet;
+      return {
+        ...state,
+        wallets: wallets,
+      };
     default:
       return state;
   }

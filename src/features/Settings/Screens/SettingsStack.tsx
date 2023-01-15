@@ -1,13 +1,14 @@
 import * as React from 'react';
 import {HeaderOptions, RootStack, Screen, SettingsStack} from '@magicwallet/navigation';
 import {
-  CurrencyScreen,
   AboutUsScreen,
-  ImportWalletScreen,
-  SettingsScreen,
-  WalletsScreen,
   CommunityScreen,
+  CurrencyScreen,
+  ImportWalletScreen,
   SelectChainScreen,
+  SettingsScreen,
+  WalletDetailsScreen,
+  WalletsScreen,
 } from '../../../core/screens';
 import {Image, Platform, TouchableOpacity} from 'react-native';
 
@@ -79,6 +80,14 @@ export const SettingsNavigator: () => React.ReactElement = () => {
         options={({}) => ({
           ...HeaderOptions,
           title: 'Select Chain',
+        })}
+      />
+      <SettingsStack.Screen
+        name={Screen.WALLET_DETAILS}
+        component={WalletDetailsScreen}
+        options={({}) => ({
+          ...HeaderOptions,
+          title: 'Wallet Info',
         })}
       />
     </SettingsStack.Navigator>

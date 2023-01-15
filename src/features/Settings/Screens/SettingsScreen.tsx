@@ -4,7 +4,8 @@ import {Props, Screen} from '@magicwallet/navigation';
 import {Colors, DefaultStyles} from '@magicwallet/styles';
 import {FormListItem} from '@magicwallet/views';
 import {useAppSelector} from '../../../core/hooks';
-import {GetCurrentWallet} from '../../wallet/selector';
+import {GetCurrentWallet} from '../../../core/selectors/wallets-selectors';
+import {FormListImageType} from '@magicwallet/views/src/form/FormListItem';
 
 export const SettingsScreen: React.FC<Props<Screen.SETTINGS>> = ({navigation}) => {
   const state = useAppSelector(s => s);
@@ -43,7 +44,14 @@ export const SettingsScreen: React.FC<Props<Screen.SETTINGS>> = ({navigation}) =
       <FlatList
         style={DefaultStyles.list}
         data={items}
-        renderItem={({item}) => <FormListItem title={item.title} subtitle={item.subtitle} onPress={item.onPress} />}
+        renderItem={({item}) => (
+          <FormListItem
+            title={item.title}
+            subtitle={item.subtitle}
+            onPress={item.onPress}
+            rightImage={FormListImageType.chevron}
+          />
+        )}
       />
     </SafeAreaView>
   );

@@ -1,4 +1,4 @@
-import {walletName} from '../wallets-selector';
+import {walletName} from '../wallets-selectors';
 import {AssetResource} from '../../../assets/asset-resource';
 
 it('test wallet name', () => {

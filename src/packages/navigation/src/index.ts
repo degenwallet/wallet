@@ -1,6 +1,8 @@
 import {createNativeStackNavigator, NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RouteProp} from '@react-navigation/core';
 import {Asset, Chain} from '@magicwallet/chain-types';
+import {Wallet} from '@magicwallet/types';
+
 export {Screen} from './screens';
 export {ScreenNavigator} from './navigator';
 export {Theme, HeaderOptions} from './style';
@@ -41,6 +43,7 @@ export type RootStackParamList = {
   CurrencyScreen: undefined;
   CommunityScreen: undefined;
   SelectChainScreen: {chain: Chain; selectChain: (chain: Chain) => void};
+  WalletDetailsScreen: {wallet: Wallet};
 };
 
 export enum SelectAssetType {

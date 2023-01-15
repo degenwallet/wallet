@@ -1,16 +1,29 @@
 import React from 'react';
-import {FlatList, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {FlatList, SafeAreaView, StyleSheet} from 'react-native';
 import {Props, Screen} from '@magicwallet/navigation';
-import {Colors, DefaultStyles, MagicButtonStyle} from '@magicwallet/styles';
-import {FormListItem, MagicButton} from '@magicwallet/views';
-import {walletsDeleteWallet, walletsSelectWallet} from '../../../core/reducers/wallets';
+import {Colors, DefaultStyles} from '@magicwallet/styles';
+import {FormListItem} from '@magicwallet/views';
 import {useAppDispatch, useAppSelector} from '../../../core/hooks';
-import {getWalletsSelector} from '../index';
+import {getWalletsSelector} from '../../../core/selectors/wallets-selectors';
+import {Wallet} from '@magicwallet/types';
+import {walletsSelectWallet} from '../../../core/reducers/wallets';
+import {FormListImageType} from '@magicwallet/views/src/form/FormListItem';
 
 export const WalletsScreen: React.FC<Props<Screen.WALLETS>> = ({navigation}) => {
   const dispatch = useAppDispatch();
   const state = useAppSelector(s => s);
   const wallets = getWalletsSelector(state);
+
+  const handleSelect = (wallet: Wallet) => {
+    //Is there a better way to handle wallet deletion?
+    navigation.goBack();
+    navigation.pop();
+    dispatch(walletsSelectWallet(wallet)).then(r => r);
+  };
+
+  const handleDetails = (wallet: Wallet) => {
+    navigation.navigate(Screen.WALLET_DETAILS, {wallet: wallet});
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -21,34 +34,15 @@ export const WalletsScreen: React.FC<Props<Screen.WALLETS>> = ({navigation}) => 
           <FormListItem
             title={item.name}
             onPress={() => {
-              dispatch(walletsSelectWallet(item.wallet)).then(_ => {
-                navigation.goBack();
-                navigation.pop();
-              });
+              handleSelect(item.wallet);
+            }}
+            rightImage={FormListImageType.info}
+            onRightPress={() => {
+              handleDetails(item.wallet);
             }}
           />
         )}
       />
-      <View
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: Colors.BLACK,
-        }}>
-        <Text>Current Wallet: {state.wallets.current}</Text>
-
-        <MagicButton
-          style={MagicButtonStyle.normal}
-          title={'Delete Wallet'}
-          onPress={() => {
-            //TODO: Fix
-            // @ts-ignore
-            dispatch(walletsDeleteWallet(state.wallets.current));
-            navigation.goBack();
-          }}
-        />
-      </View>
     </SafeAreaView>
   );
 };

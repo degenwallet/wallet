@@ -12,3 +12,4 @@ export {SelectChainScreen} from '../features/wallets/screens/SelectChainScreen';
 export {AboutUsScreen} from '../features/settings/screens/AboutUsScreen';
 export {CurrencyScreen} from '../features/settings/screens/CurrencyScreen';
 export {CommunityScreen} from '../features/settings/screens/CommunityScreen';
+export {WalletDetailsScreen} from '../features/wallets/screens/WalletDetailsScreen';
