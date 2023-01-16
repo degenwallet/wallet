@@ -523,6 +523,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZRJTH9C3RW;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZRJTH9C3RW;
 				INFOPLIST_FILE = degen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -535,7 +536,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.degenwallet.wallet;
 				PRODUCT_NAME = degen;
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore org.degenwallet.wallet";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.degenwallet.wallet";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.degenwallet.wallet";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
