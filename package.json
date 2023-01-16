@@ -19,7 +19,6 @@
     "build": "yarn build:web",
     "build:web": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
     "build:extension": "yarn run build:web && cp -v build/static/js/main.*.js build/static/js/main.js",
-    "build:ios:bundle": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle",
     "build:android:debug": "cd android && ./gradlew assembleDebug",
     "build:android:release:assets-bundle": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output ./android/app/src/main/assets/index.android.bundle",
     "build:android:release:assemble": "cd android && ./gradlew assembleRelease",
