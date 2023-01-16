@@ -5,13 +5,17 @@ export const Touchable = (props: any) => {
   switch (Platform.OS) {
     case 'android':
       return (
-        <TouchableNativeFeedback useForeground onPress={props.onPress}>
+        <TouchableNativeFeedback disabled={props.disabled} useForeground onPress={props.onPress}>
           <View style={{...props.style, overflow: 'hidden'}}>{props.children}</View>
         </TouchableNativeFeedback>
       );
     default:
       return (
-        <TouchableHighlight style={props.style} onPress={props.onPress} underlayColor={props.underlayColor}>
+        <TouchableHighlight
+          disabled={props.disabled}
+          style={props.style}
+          onPress={props.onPress}
+          underlayColor={props.underlayColor}>
           {props.children}
         </TouchableHighlight>
       );

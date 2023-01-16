@@ -31,8 +31,9 @@ export class FormListItem extends React.Component<FormListItemProps> {
   }
 
   render() {
-    const paddingLeft = this.props.subtitle !== undefined ? 0 : 16;
+    const rightPaddingLeft = this.props.subtitle !== undefined ? 0 : 16;
     const rightImage = this.getRightImage(this.props.rightImage || FormListImageType.chevron);
+    const rightDisabled = this.props.rightImage === FormListImageType.chevron;
 
     return (
       <Touchable style={{...styles.touch, ...this.props.style}} onPress={this.props.onPress}>
@@ -52,7 +53,8 @@ export class FormListItem extends React.Component<FormListItemProps> {
           </View>
           {this.props.rightImage ? (
             <Touchable
-              style={{...styles.touch, ...styles.right_container, ...this.props.style, paddingLeft: paddingLeft}}
+              style={{...styles.touch, ...styles.right_container, ...this.props.style, paddingLeft: rightPaddingLeft}}
+              disabled={rightDisabled}
               onPress={this.props.onRightPress}>
               <Image style={styles.right_container_image} source={rightImage} />
             </Touchable>
