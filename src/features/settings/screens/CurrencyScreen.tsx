@@ -24,7 +24,6 @@ export const CurrencyScreen: React.FC<Props<Screen.CURRENCY>> = ({navigation}) =
                 navigation.pop();
               });
             }}
-            isChevronHidden={true}
           />
         )}
       />
