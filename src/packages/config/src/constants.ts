@@ -1,4 +1,4 @@
-export const AssetsEndpoints = 'https://assets.degenwallet.com';
+export const AssetsEndpoints = 'https://pub-2ad0a78712334a97976bd481e57da9c2.r2.dev';
 
 export const NAME = 'degen';
 export const DISPLAY_NAME = 'Degen Wallet';
