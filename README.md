@@ -18,7 +18,7 @@
 - 🔑 **Secure** and **Privacy** preserving wallet.
 - 📱 **Cross Platform** build with React Native (TypeScript) for iOS and Android.
 
-<img src="https://assets.degenwallet.com/screenshots/wallet.png" alt="" width="250" height="540" /> <img src="https://assets.degenwallet.com/screenshots/buy.png" alt="" width="250" height="540" /> <img src="https://assets.degenwallet.com/screenshots/collectibles.png" alt="" width="250" height="540" />
+<img src="https://pub-2ad0a78712334a97976bd481e57da9c2.r2.dev/screenshots/wallet.png" alt="" width="250" height="540" /> <img src="https://pub-2ad0a78712334a97976bd481e57da9c2.r2.dev/screenshots/buy.png" alt="" width="250" height="540" /> <img src="https://pub-2ad0a78712334a97976bd481e57da9c2.r2.dev/screenshots/collectibles.png" alt="" width="250" height="540" />
 
 ## 🏄‍♂️ Contributing
 
