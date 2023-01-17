@@ -23,7 +23,7 @@
     "build:android:release:assets-bundle": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output ./android/app/src/main/assets/index.android.bundle",
     "build:android:release:assemble": "cd android && ./gradlew assembleRelease",
     "build:android:release:bundle": "cd android && ./gradlew bundleRelease",
-    "install:ios": "npx pod-install",
+    "install:ios": "cd ios && pod install --repo-update",
     "upgrade:all": "yarn upgrade --latest && yarn install:ios && cd ios && pod update hermes-engine --no-repo-update"
   },
   "dependencies": {
@@ -44,7 +44,7 @@
     "@reduxjs/toolkit": "1.9.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.71.0",
+    "react-native": "0.70.6",
     "react-native-device-info": "10.3.0",
     "react-native-fast-image": "8.6.3",
     "react-native-flipper": "0.177.0",
@@ -58,7 +58,6 @@
     "react-redux": "8.0.5",
     "react-scripts": "5.0.1",
     "redux": "4.2.0",
-    "redux-flipper": "2.0.2",
     "redux-persist": "6.0.0"
   },
   "devDependencies": {
