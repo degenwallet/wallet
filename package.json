@@ -10,6 +10,7 @@
     "start": "react-native start",
     "web": "react-scripts start",
     "test": "jest",
+    "test:ios": "xcodebuild -workspace ios/degen.xcworkspace -scheme degen -sdk iphonesimulator -destination \"platform=iOS Simulator,name=iPhone 14\" test | xcbeautify",
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
     "lint-fix": "eslint ./src --fix --ext .js,.jsx,.ts,.tsx",
     "clean": "react-native start --reset-cache",
