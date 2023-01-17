@@ -24,6 +24,7 @@
 
 - Look in to our [Github Issues](https://github.com/degenwallet/wallet/issues)
 - See progress on our [Github Project Board](https://github.com/orgs/degenwallet/projects/2)
+- Public [Roadmap](https://github.com/orgs/degenwallet/projects/4)
 
 See our [Contributing Guidelines](./CONTRIBUTING.md).
 
