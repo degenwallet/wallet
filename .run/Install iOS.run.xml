@@ -6,7 +6,9 @@
       <script value="install:ios" />
     </scripts>
     <node-interpreter value="project" />
-    <envs />
+    <envs>
+      <env name="USE_FLIPPER" value="1" />
+    </envs>
     <method v="2" />
   </configuration>
 </component>

@@ -4,7 +4,7 @@
 #import <React/RCTLog.h>
 #import <React/RCTRootView.h>
 
-#define TIMEOUT_SECONDS 600
+#define TIMEOUT_SECONDS 60
 #define TEXT_TO_LOOK_FOR @"Create a new wallet"
 
 @interface degenTests : XCTestCase
