@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
+import {Alert, SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
 import {Props, Screen} from '@degenwallet/navigation';
 import {Colors, DegenButtonStyle} from '@degenwallet/styles';
 import {DegenButton} from '@degenwallet/views';
@@ -9,6 +9,8 @@ import {Asset, Chain} from '@degenwallet/chain-types';
 import {ChainView} from '../ChainView';
 import {GetAssetResource} from '../../../assets/asset-resource';
 import {walletName} from '../../../core/selectors/wallets-selectors';
+import {AnyAddress} from '@degenwallet/react-native-wallet-core/lib/typescript/address';
+import {TWAsset} from '@degenwallet/market-provider/src/providers/trustwallet/TWAsset';
 
 export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navigation}) => {
   const [name, onChangeName] = React.useState('');
@@ -23,6 +25,25 @@ export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navig
     const assetResource = GetAssetResource(new Asset(selectedChain))!;
     onChangeName(walletName(assetResource, walletsCount));
   }, [selectedChain]);
+
+  const handleSubmit = async (name: string, chain: Chain, address: string) => {
+    const coin = TWAsset.coinFromChain(chain);
+
+    const isValid = await AnyAddress.validateAddress(address, coin);
+    if (!isValid) {
+      Alert.alert('Invalid Address', '', [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+      ]);
+      return;
+    }
+
+    dispatch(walletsAddWallet(name, chain, address)).then(_ => {
+      navigation.navigate(Screen.WALLET);
+    });
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -59,9 +80,7 @@ export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navig
           style={DegenButtonStyle.normal}
           title={'Import Wallet'}
           onPress={() => {
-            dispatch(walletsAddWallet(name, selectedChain, value)).then(_ => {
-              navigation.navigate(Screen.WALLET);
-            });
+            handleSubmit(name, selectedChain, value);
           }}
         />
       </View>
