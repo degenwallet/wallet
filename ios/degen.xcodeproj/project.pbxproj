@@ -12,8 +12,8 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		D3B505A418788F52EACD2929 /* libPods-degen-degenTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 042C9BB8A28C19B414A55204 /* libPods-degen-degenTests.a */; };
-		FDDE816A02FB6B15D2BE0BD8 /* libPods-degen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C815914A6C7B2C97CE42B0A5 /* libPods-degen.a */; };
+		94C4703F152A998430FF510B /* libPods-degen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 004B1794A551E7DDBC7943AE /* libPods-degen.a */; };
+		CBFDA45811795CF6015DBC27 /* libPods-degen-degenTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49DE646F799F4B72F7970062 /* libPods-degen-degenTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,10 +27,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		004B1794A551E7DDBC7943AE /* libPods-degen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-degen.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356EE1AD99517003FC87E /* degenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = degenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* degenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = degenTests.m; sourceTree = "<group>"; };
-		042C9BB8A28C19B414A55204 /* libPods-degen-degenTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-degen-degenTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* degen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = degen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = degen/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = degen/AppDelegate.mm; sourceTree = "<group>"; };
@@ -39,12 +39,12 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = degen/main.m; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-degen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-degen.debug.xcconfig"; path = "Target Support Files/Pods-degen/Pods-degen.debug.xcconfig"; sourceTree = "<group>"; };
 		3FDC64AD38CF98E4D8F3874C /* Pods-degen-degenTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-degen-degenTests.release.xcconfig"; path = "Target Support Files/Pods-degen-degenTests/Pods-degen-degenTests.release.xcconfig"; sourceTree = "<group>"; };
+		49DE646F799F4B72F7970062 /* libPods-degen-degenTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-degen-degenTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5709B34CF0A7D63546082F79 /* Pods-degen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-degen.release.xcconfig"; path = "Target Support Files/Pods-degen/Pods-degen.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-degen-degenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-degen-degenTests.debug.xcconfig"; path = "Target Support Files/Pods-degen-degenTests/Pods-degen-degenTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = degen/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-degen-degenTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-degen-degenTests.release.xcconfig"; path = "Target Support Files/Pods-degen-degenTests/Pods-degen-degenTests.release.xcconfig"; sourceTree = "<group>"; };
 		C7295547BD16206FAF3FA8E0 /* Pods-degen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-degen.release.xcconfig"; path = "Target Support Files/Pods-degen/Pods-degen.release.xcconfig"; sourceTree = "<group>"; };
-		C815914A6C7B2C97CE42B0A5 /* libPods-degen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-degen.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4B44358AC9155F2233EC3D /* Pods-degen-degenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-degen-degenTests.debug.xcconfig"; path = "Target Support Files/Pods-degen-degenTests/Pods-degen-degenTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E1B47B475BE7D8420D0A2FD1 /* Pods-degen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-degen.debug.xcconfig"; path = "Target Support Files/Pods-degen/Pods-degen.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -55,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3B505A418788F52EACD2929 /* libPods-degen-degenTests.a in Frameworks */,
+				CBFDA45811795CF6015DBC27 /* libPods-degen-degenTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDDE816A02FB6B15D2BE0BD8 /* libPods-degen.a in Frameworks */,
+				94C4703F152A998430FF510B /* libPods-degen.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,8 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				C815914A6C7B2C97CE42B0A5 /* libPods-degen.a */,
-				042C9BB8A28C19B414A55204 /* libPods-degen-degenTests.a */,
+				004B1794A551E7DDBC7943AE /* libPods-degen.a */,
+				49DE646F799F4B72F7970062 /* libPods-degen-degenTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -168,7 +168,7 @@
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
 				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
-				F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */,
+				745CBF7E8FDAC04205624320 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,7 +191,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				94CF6FD5655DF6B4F15805EE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -291,6 +291,40 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-degen/Pods-degen-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		745CBF7E8FDAC04205624320 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-degen-degenTests/Pods-degen-degenTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-degen-degenTests/Pods-degen-degenTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-degen-degenTests/Pods-degen-degenTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94CF6FD5655DF6B4F15805EE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-degen/Pods-degen-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-degen/Pods-degen-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-degen/Pods-degen-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -350,40 +384,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-degen-degenTests/Pods-degen-degenTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-degen/Pods-degen-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-degen/Pods-degen-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-degen/Pods-degen-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-degen-degenTests/Pods-degen-degenTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-degen-degenTests/Pods-degen-degenTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-degen-degenTests/Pods-degen-degenTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
