@@ -32,7 +32,10 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  RCTAppSetupPrepareApp(application);
+  bool turboModuleEnabled = false;
+  bool fabricEnabled = false;
+  
+  RCTAppSetupPrepareApp(application, turboModuleEnabled);
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
 
@@ -48,7 +51,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   RCTSetImageCacheLimits(12*1024*1024, 512*1024*1024);
 
   NSDictionary *initProps = [self prepareInitialProps];
-  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"degen", initProps);
+  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"degen", initProps, fabricEnabled);
 
 // Magic
 //  if (@available(iOS 13.0, *)) {

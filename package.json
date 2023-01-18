@@ -24,7 +24,7 @@
     "build:android:release:assets-bundle": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output ./android/app/src/main/assets/index.android.bundle",
     "build:android:release:assemble": "cd android && ./gradlew assembleRelease",
     "build:android:release:bundle": "cd android && ./gradlew bundleRelease",
-    "install:ios": "cd ios && pod install --repo-update",
+    "install:ios": "npx pod-install",
     "upgrade:all": "yarn upgrade --latest && yarn install:ios && cd ios && pod update hermes-engine --no-repo-update"
   },
   "dependencies": {
@@ -59,6 +59,7 @@
     "react-redux": "8.0.5",
     "react-scripts": "5.0.1",
     "redux": "4.2.0",
+    "redux-flipper": "2.0.2",
     "redux-persist": "6.0.0"
   },
   "devDependencies": {

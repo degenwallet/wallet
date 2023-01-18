@@ -19,10 +19,10 @@ const middlewares = getDefaultMiddleware({
   },
   immutableCheck: false,
 });
+
 if (__DEV__) {
-  // TODO: Flipper
-  // const createDebugger = require('redux-flipper').default;
-  // middlewares.push(createDebugger());
+  const createDebugger = require('redux-flipper').default;
+  middlewares.push(createDebugger());
 }
 
 export const store = configureStore({
