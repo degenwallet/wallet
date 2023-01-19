@@ -3,7 +3,7 @@
 buildscript {
     ext {
         buildToolsVersion = "33.0.0"
-        minSdkVersion = 21
+        minSdkVersion = 23
         compileSdkVersion = 33
         targetSdkVersion = 33
 
@@ -19,3 +19,25 @@ buildscript {
         classpath("com.facebook.react:react-native-gradle-plugin")
     }
 }
+
+
+Properties properties = new Properties()
+File localProps = new File(rootDir.absolutePath, "local.properties")
+if (localProps.exists()) {
+    properties.load(localProps.newDataInputStream())
+} else {
+    println "local.properties not found"
+}
+
+allprojects {
+    repositories {
+    maven {
+            url = uri("https://maven.pkg.github.com/trustwallet/wallet-core")
+            credentials {
+                username = properties.getProperty("gpr.username") as String?: System.getenv("GITHUB_USER")
+                password = properties.getProperty("gpr.password") as String?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
+
