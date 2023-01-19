@@ -37,3 +37,6 @@ jobs:
 
       - name: Run build android
         run: yarn run build:android:debug
+        env:
+          GITHUB_USERNAME: ${{ ${{ github.actor }} }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
