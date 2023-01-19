@@ -80,7 +80,7 @@ export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navig
           style={DegenButtonStyle.normal}
           title={'Import Wallet'}
           onPress={() => {
-            handleSubmit(name, selectedChain, value);
+            handleSubmit(name, selectedChain, value).then(r => r);
           }}
         />
       </View>
