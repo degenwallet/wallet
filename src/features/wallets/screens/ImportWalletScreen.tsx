@@ -29,6 +29,7 @@ export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navig
   const handleSubmit = async (name: string, chain: Chain, address: string) => {
     const coin = TWAsset.coinFromChain(chain);
 
+    //TODO: Add form validation UI, this is a temp hack to test Wallet Core.
     const isValid = await AnyAddress.validateAddress(address, coin);
     if (!isValid) {
       Alert.alert('Invalid Address', '', [
