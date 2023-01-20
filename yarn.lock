@@ -1230,10 +1230,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-2.0.2.tgz#1bfafe4b7ed0f3e4105837e056e0a89b108ebe36"
   integrity sha512-IkpVW/ehM1hWKln4fCA3NzJU8KwD+kIOvPZA4cqxoJHtE21CCzjyp+Kxbu0i5I4tBNOlXPL9mjwnWlL0VEG4Fg==
 
-"@degenwallet/react-native-wallet-core@0.0.24":
-  version "0.0.24"
-  resolved "https://registry.yarnpkg.com/@degenwallet/react-native-wallet-core/-/react-native-wallet-core-0.0.24.tgz#34be4150662b6b3ce4c059155de2f52a1be2bef9"
-  integrity sha512-8YfhSz2ABMg7IwAysYkbeb9LWOIR/Sw8KPEQcbXeVyGevxOQJOqDIY+fOkbyrPB17u25hYi8SasbOHw880pjiA==
+"@degenwallet/react-native-wallet-core@0.0.25":
+  version "0.0.25"
+  resolved "https://registry.yarnpkg.com/@degenwallet/react-native-wallet-core/-/react-native-wallet-core-0.0.25.tgz#9f45497979d6a9491c7348c54caaf9480c19e9c0"
+  integrity sha512-Rna7r+eHJYPqr7oO7uzAIIxHy3k0Z4gR4eLzbdJJADVPI4N6BX+0uVYU49CPGDSC57QQyPLJwgKQnnkigf/UaQ==
 
 "@eslint/eslintrc@^1.4.1":
   version "1.4.1"
