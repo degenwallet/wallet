@@ -18,6 +18,8 @@
     "clean:web": "rm -rf /build && rm -rf /node_modules",
     "clean:android": "cd android && ./gradlew clean",
     "build": "yarn build:web",
+    "build:ios:debug": "xcodebuild -workspace ios/degen.xcworkspace -scheme degen -sdk iphonesimulator -configuration Debug -destination \"platform=iOS Simulator,name=iPhone 14\" | xcbeautify",
+    "build:ios:release": "xcodebuild -workspace ios/degen.xcworkspace -scheme degen -sdk iphonesimulator -configuration Release -destination \"platform=iOS Simulator,name=iPhone 14\" | xcbeautify",
     "build:web": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
     "build:extension": "yarn run build:web && cp -v build/static/js/main.*.js build/static/js/main.js",
     "build:android:debug": "cd android && ./gradlew assembleDebug",

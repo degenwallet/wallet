@@ -29,5 +29,8 @@ jobs:
       - name: Install iOS Dependency
         run: yarn run install:ios
 
-      - name: Run iOS tests
-        run: yarn run test:ios
+      - name: Run iOS debug build
+        run: yarn run build:ios:debug
+
+      - name: Run iOS release build
+        run: yarn run build:ios:release
