@@ -5,10 +5,12 @@ on:
     branches: [ main ]
     paths:
       - 'android/**'
+      - 'package.json'
   pull_request:
     branches: [ main ]
     paths:
       - 'android/**'
+      - 'package.json'
 
 jobs:
   build:
