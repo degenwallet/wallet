@@ -4,7 +4,7 @@
     <a href="https://github.com/degenwallet/wallet/blob/main/LICENSE">
         <img src="https://badgen.net/github/license/degenwallet/wallet" alt="License">
     </a>
-    <a href="https://twitter.com/DegenWalletApp">
+    <a href="https://twitter.com/DegenWallet">
         <img src="https://img.shields.io/twitter/follow/DegenWalletApp?label=DegenWallet&style=flat&logo=twitter&color=1DA1F2" alt="Degen Wallet Twitter">
     </a>
     <a href="https://discord.gg/aWkq5sj7SY">
@@ -32,7 +32,7 @@ See our [Contributing Guidelines](./CONTRIBUTING.md).
 
 - Install the app [Degen Wallet](https://degenwallet.com)
 - Join our [Discord](https://discord.gg/aWkq5sj7SY)
-- Follow on [Twitter](http://twitter.com/DegenWalletApp) or join [Telegram](https://t.me/DegenWalletApp)
+- Follow on [Twitter](http://twitter.com/DegenWallet) or join [Telegram](https://t.me/DegenWalletApp)
 
 ## 🙋 Getting Help
 
