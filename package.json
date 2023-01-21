@@ -38,7 +38,7 @@
     "@degenwallet/fiat-providers": "*",
     "@degenwallet/json-rpc": "*",
     "@degenwallet/navigation": "*",
-    "@degenwallet/react-native-wallet-core": "0.0.25",
+    "@degenwallet/react-native-wallet-core": "0.0.29",
     "@degenwallet/styles": "*",
     "@degenwallet/types": "*",
     "@degenwallet/views": "*",
