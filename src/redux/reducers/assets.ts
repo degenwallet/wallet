@@ -86,10 +86,9 @@ export const marketUpdateTotalFiatValue = (wallet_id: string) => async (dispatch
 export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
   builder
     .addCase(assetsGenericUpdate, (state, action) => {
-      // const list = state.generic_list || {};
       const list: AssetResources = {};
       action.payload.forEach(asset => {
-        console.log('wallet service error: ', asset);
+        console.log('update generic asset error: ', asset);
         list[asset.asset] = asset;
       });
       return {
@@ -120,10 +119,6 @@ export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
       });
 
       wallets[wallet_id] = walletAssets;
-      // return {
-      //   ...state,
-      //   wallets: wallets,
-      // };
     })
     .addCase(assetsPriceUpdate, (state, action) => {
       return {
@@ -149,11 +144,6 @@ export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
         walletAssets.assets[assetId] = asset;
       });
       wallets[wallet_id] = walletAssets;
-
-      // return {
-      //   ...state,
-      //   wallets: wallets,
-      // };
     })
     .addCase(assetsFiatTotalUpdate, (state, action) => {
       const wallet_id = action.payload.wallet_id;
@@ -183,10 +173,5 @@ export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
 
       walletAssets.fiat_value = fiatValue;
       wallets[wallet_id] = walletAssets;
-
-      // return {
-      //   ...state,
-      //   wallets: wallets,
-      // };
     });
 });
