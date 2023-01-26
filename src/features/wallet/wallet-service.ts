@@ -5,7 +5,7 @@ import {
   marketUpdateAssetFiatValue,
   marketUpdatePrices,
   marketUpdateTotalFiatValue,
-} from '@degenwallet/redux/src';
+} from '@degenwallet/redux';
 import {Asset, AssetBalance, Chain} from '@degenwallet/chain-types';
 import {AppDispatch} from '../../core/store';
 import {GetAssetResources} from '../../assets/asset-resource';
