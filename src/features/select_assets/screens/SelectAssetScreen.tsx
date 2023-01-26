@@ -4,7 +4,7 @@ import {Props, Screen, SelectAssetType} from '@degenwallet/navigation';
 import {Colors} from '@degenwallet/styles';
 import {AssetListItem} from '@degenwallet/views';
 import {GetAssetsSelector} from '../../../core/selectors/assets-selectors';
-import {useAppSelector} from '../../../core/hooks';
+import {useAppSelector} from '../../../core/store';
 import {GetCurrentWallet} from '../../../core/selectors/wallets-selectors';
 import {Asset} from '@degenwallet/chain-types';
 

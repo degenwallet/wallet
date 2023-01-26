@@ -5,7 +5,7 @@ import {Colors, DefaultStyles, FontWeight} from '@degenwallet/styles';
 import {FormListItem} from '@degenwallet/views';
 import {CurrencyList} from '@degenwallet/types';
 import {settingsChangeCurrency} from '../../../core/reducers/settings';
-import {useAppDispatch} from '../../../core/hooks';
+import {useAppDispatch} from '../../../core/store';
 
 export const CurrencyScreen: React.FC<Props<Screen.CURRENCY>> = ({navigation}) => {
   const items = CurrencyList;

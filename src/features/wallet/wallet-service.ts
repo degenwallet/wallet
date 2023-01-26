@@ -1,11 +1,11 @@
 import {
   assetAddToList,
-  assetsBalancesUpdate,
+  balancesUpdate,
   BalancesMap,
   marketUpdateAssetFiatValue,
   marketUpdatePrices,
   marketUpdateTotalFiatValue,
-} from '../../core/reducers/assets';
+} from '../../redux/reducers/assets';
 import {Asset, AssetBalance, Chain} from '@degenwallet/chain-types';
 import {AppDispatch} from '../../core/store';
 import {GetAssetResources} from '../../assets/asset-resource';
@@ -33,7 +33,7 @@ export class WalletService {
 
     return dispatch(assetAddToList(assetsResource))
       .then(_ => {
-        return dispatch(assetsBalancesUpdate(wallet, defaultAssets));
+        return dispatch(balancesUpdate(wallet, defaultAssets));
       })
       .then(_ => {
         return this.assetService.getAssets(wallet.accounts);
@@ -42,7 +42,7 @@ export class WalletService {
         return this.balanceService.getBalances(wallet.accounts, assets);
       })
       .then(assets => {
-        return dispatch(assetsBalancesUpdate(wallet, assets));
+        return dispatch(balancesUpdate(wallet, assets));
       })
       .then(assets => {
         return this.updatePrices(dispatch, wallet, currency, assets.payload.balances);
