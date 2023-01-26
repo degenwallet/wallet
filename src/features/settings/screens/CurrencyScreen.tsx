@@ -4,7 +4,7 @@ import {Props, Screen} from '@degenwallet/navigation';
 import {Colors, DefaultStyles, FontWeight} from '@degenwallet/styles';
 import {FormListItem} from '@degenwallet/views';
 import {CurrencyList} from '@degenwallet/types';
-import {settingsChangeCurrency} from '../../../core/reducers/settings';
+import {settingsSetCurrency} from '../../../redux/reducers/settings';
 import {useAppDispatch} from '../../../core/store';
 
 export const CurrencyScreen: React.FC<Props<Screen.CURRENCY>> = ({navigation}) => {
@@ -20,7 +20,7 @@ export const CurrencyScreen: React.FC<Props<Screen.CURRENCY>> = ({navigation}) =
           <FormListItem
             title={item}
             onPress={() => {
-              dispatch(settingsChangeCurrency(item)).then(_ => {
+              dispatch(settingsSetCurrency(item)).then(_ => {
                 navigation.pop();
               });
             }}
