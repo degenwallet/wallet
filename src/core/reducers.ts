@@ -2,10 +2,10 @@ import {combineReducers} from 'redux';
 
 import wallets from './reducers/wallets';
 import settings from './reducers/settings';
-import assets from './reducers/assets';
+import {AssetsReducer} from '../redux/reducers/assets';
 
 export default combineReducers({
   wallets,
   settings,
-  assets,
+  assets: AssetsReducer,
 });

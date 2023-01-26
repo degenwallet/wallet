@@ -1,5 +1,5 @@
 import reducers from './reducers';
-import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
+import {configureStore} from '@reduxjs/toolkit';
 import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE} from 'redux-persist';
 import {reduxStorage} from './storage';
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
@@ -12,23 +12,31 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
-const middlewares = getDefaultMiddleware({
-  // https://github.com/reduxjs/redux-toolkit/issues/415
-  //serializableCheck: false,
-  serializableCheck: {
-    ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-  },
-  immutableCheck: false,
-});
+// const middlewares = getDefaultMiddleware({
+//   // https://github.com/reduxjs/redux-toolkit/issues/415
+//   //serializableCheck: false,
+//   serializableCheck: {
+//     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+//   },
+//   immutableCheck: false,
+// });
 
-if (__DEV__) {
-  const createDebugger = require('redux-flipper').default;
-  middlewares.push(createDebugger());
-}
+// if (__DEV__) {
+//   const createDebugger = require('redux-flipper').default;
+//   middlewares.push(createDebugger());
+// }
 
 export const store = configureStore({
   reducer: persistedReducer,
-  middleware: middlewares,
+  middleware: defaultMiddleware =>
+    defaultMiddleware({
+      // https://github.com/reduxjs/redux-toolkit/issues/415
+      //serializableCheck: false,
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+      immutableCheck: false,
+    }),
 });
 export const persistor = persistStore(store);
 
