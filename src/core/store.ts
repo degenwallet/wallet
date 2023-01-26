@@ -12,15 +12,6 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
-// const middlewares = getDefaultMiddleware({
-//   // https://github.com/reduxjs/redux-toolkit/issues/415
-//   //serializableCheck: false,
-//   serializableCheck: {
-//     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-//   },
-//   immutableCheck: false,
-// });
-
 // if (__DEV__) {
 //   const createDebugger = require('redux-flipper').default;
 //   middlewares.push(createDebugger());
