@@ -1,6 +1,6 @@
 import {createAction} from '@reduxjs/toolkit';
 import {AssetsPriceMap, BalancesMap} from '../reducers/assets';
-import {AssetResource} from '../../../assets/asset-resource';
+import {AssetResource} from '../../../../assets/asset-resource';
 import {withPayloadType} from './index';
 
 export const assetsBalancesUpdate = createAction(
