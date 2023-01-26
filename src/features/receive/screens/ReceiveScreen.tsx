@@ -5,7 +5,7 @@ import {Colors, DegenButtonStyle} from '@degenwallet/styles';
 import QRCode from 'react-native-qrcode-svg';
 import {DegenButton, Touchable} from '@degenwallet/core-components';
 import Clipboard from '@react-native-clipboard/clipboard';
-import {useAppSelector} from '../../../core/hooks';
+import {useAppSelector} from '../../../core/store';
 import {GetAssetSelector, GetAssetTitle} from '../../../core/selectors/assets-selectors';
 import {GetCurrentWallet, GetCurrentWalletAccount} from '../../../core/selectors/wallets-selectors';
 import {AssetTypeList} from '@degenwallet/chain-types';

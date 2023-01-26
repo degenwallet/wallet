@@ -3,7 +3,7 @@ import {FlatList, SafeAreaView, StyleSheet} from 'react-native';
 import {Props, Screen} from '@degenwallet/navigation';
 import {Colors, DefaultStyles} from '@degenwallet/styles';
 import {FormListItem} from '@degenwallet/views';
-import {useAppSelector} from '../../../core/hooks';
+import {useAppSelector} from '../../../core/store';
 import {GetCurrentWallet} from '../../../core/selectors/wallets-selectors';
 import {FormListImageType} from '@degenwallet/views/src/form/FormListItem';
 

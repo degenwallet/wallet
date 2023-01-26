@@ -5,7 +5,7 @@ import {Colors, FontWeight, DegenButtonStyle} from '@degenwallet/styles';
 import {FiatProvidersFactory, QuoteFetcher, QuoteResult} from '@degenwallet/fiat-providers';
 import {DegenButton} from '@degenwallet/views';
 import {GetCurrencySelector} from '../../../core/selectors/settings-selectors';
-import {useAppSelector} from '../../../core/hooks';
+import {useAppSelector} from '../../../core/store';
 import {GetCurrentWallet, GetCurrentWalletAccount} from '../../../core/selectors/wallets-selectors';
 import {GetAssetSelector, GetAssetTitle} from '../../../core/selectors/assets-selectors';
 import {BuyButtons} from '../BuyButtons';

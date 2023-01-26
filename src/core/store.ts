@@ -2,6 +2,7 @@ import reducers from './reducers';
 import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
 import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE} from 'redux-persist';
 import {reduxStorage} from './storage';
+import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 
 const persistConfig = {
   key: 'root_v11',
@@ -33,3 +34,6 @@ export const persistor = persistStore(store);
 
 export type AppState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+
+export const useAppDispatch: () => AppDispatch = useDispatch;
+export const useAppSelector: TypedUseSelectorHook<AppState> = useSelector;
