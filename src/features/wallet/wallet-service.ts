@@ -1,10 +1,10 @@
 import {
-  assetAddToList,
-  balancesUpdate,
+  assetAddToListThunk,
+  assetsPriceUpdateThunk,
+  assetsFiatUpdateThunk,
+  assetsFiatTotalUpdateThunk,
+  balancesUpdateThunk,
   BalancesMap,
-  marketUpdateAssetFiatValue,
-  marketUpdatePrices,
-  marketUpdateTotalFiatValue,
 } from '@degenwallet/redux';
 import {Asset, AssetBalance, Chain} from '@degenwallet/chain-types';
 import {AppDispatch} from '../../core/store';
@@ -31,9 +31,9 @@ export class WalletService {
         return new AssetBalance(asset, BigInt(0));
       });
 
-    return dispatch(assetAddToList(assetsResource))
+    return dispatch(assetAddToListThunk(assetsResource))
       .then(_ => {
-        return dispatch(balancesUpdate(wallet, defaultAssets));
+        return dispatch(balancesUpdateThunk(wallet, defaultAssets));
       })
       .then(_ => {
         return this.assetService.getAssets(wallet.accounts);
@@ -42,7 +42,7 @@ export class WalletService {
         return this.balanceService.getBalances(wallet.accounts, assets);
       })
       .then(assets => {
-        return dispatch(balancesUpdate(wallet, assets));
+        return dispatch(balancesUpdateThunk(wallet, assets));
       })
       .then(assets => {
         return this.updatePrices(dispatch, wallet, currency, assets.payload.balances);
@@ -61,15 +61,15 @@ export class WalletService {
         Object.keys(balances).map(key => Asset.fromID(key)),
       )
       .then(prices => {
-        return dispatch(marketUpdatePrices(prices.prices)).then(_ => {
+        return dispatch(assetsPriceUpdateThunk(prices.prices)).then(_ => {
           return this.updateFiat(dispatch, wallet, prices.prices);
         });
       });
   }
 
   updateFiat(dispatch: AppDispatch, wallet: Wallet, prices: Price[]) {
-    return dispatch(marketUpdateAssetFiatValue(wallet.id, prices)).then(_ =>
-      dispatch(marketUpdateTotalFiatValue(wallet.id)),
+    return dispatch(assetsFiatUpdateThunk(wallet.id, prices)).then(_ =>
+      dispatch(assetsFiatTotalUpdateThunk(wallet.id)),
     );
   }
 }
