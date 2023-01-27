@@ -6,7 +6,7 @@ import {FormListItem} from '@degenwallet/views';
 import {useAppDispatch, useAppSelector} from '@degenwallet/store';
 import {getWalletsSelector} from '../../../core/selectors/wallets-selectors';
 import {Wallet} from '@degenwallet/types';
-import {walletsSelectWallet} from '../../../core/reducers/wallets';
+import {walletsSelectWallet} from '@degenwallet/redux';
 import {FormListImageType} from '@degenwallet/views/src/form/FormListItem';
 
 export const WalletsScreen: React.FC<Props<Screen.WALLETS>> = ({navigation}) => {
@@ -18,7 +18,7 @@ export const WalletsScreen: React.FC<Props<Screen.WALLETS>> = ({navigation}) => 
     //Is there a better way to handle wallet deletion?
     navigation.goBack();
     navigation.pop();
-    dispatch(walletsSelectWallet(wallet)).then(r => r);
+    dispatch(walletsSelectWallet(wallet.id));
   };
 
   const handleDetails = (wallet: Wallet) => {
