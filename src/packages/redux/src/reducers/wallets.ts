@@ -1,6 +1,6 @@
 import {createReducer} from '@reduxjs/toolkit';
 import {AddWallet, addWallet, removeWallet, renameWallet, selectWallet, Wallet} from '../actions/wallets_actions';
-import {AppDispatch} from '../../../../core/store';
+import {AppDispatch} from '@degenwallet/store';
 
 interface WalletsState {
   current: string;
