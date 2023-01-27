@@ -3,7 +3,7 @@ import {Alert, SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
 import {Props, Screen} from '@degenwallet/navigation';
 import {Colors, DegenButtonStyle} from '@degenwallet/styles';
 import {DegenButton} from '@degenwallet/views';
-import {walletsAddWallet} from '../../../core/reducers/wallets';
+import {walletsAddWallet} from '@degenwallet/redux';
 import {useAppDispatch, useAppSelector} from '../../../core/store';
 import {Asset, Chain} from '@degenwallet/chain-types';
 import {ChainView} from '../ChainView';
@@ -11,6 +11,7 @@ import {GetAssetResource} from '../../../assets/asset-resource';
 import {walletName} from '../../../core/selectors/wallets-selectors';
 import {AnyAddress} from '@degenwallet/react-native-wallet-core/lib/typescript/address';
 import {TWAsset} from '@degenwallet/market-provider/src/providers/trustwallet/TWAsset';
+import {WalletType} from '@degenwallet/types';
 
 export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navigation}) => {
   const [name, onChangeName] = React.useState('');
@@ -41,9 +42,11 @@ export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navig
       return;
     }
 
-    dispatch(walletsAddWallet(name, chain, address)).then(_ => {
-      navigation.navigate(Screen.WALLET);
-    });
+    dispatch(walletsAddWallet({name, type: WalletType.SINGLE, accounts: [{chain: chain, address: address}]})).then(
+      _ => {
+        navigation.navigate(Screen.WALLET);
+      },
+    );
   };
 
   return (

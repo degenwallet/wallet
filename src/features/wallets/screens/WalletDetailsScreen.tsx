@@ -3,10 +3,10 @@ import {SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
 import {Props, Screen} from '@degenwallet/navigation';
 import {Colors, DegenButtonStyle, Spacing} from '@degenwallet/styles';
 import {DegenButton} from '@degenwallet/views';
-import {walletsDeleteWallet, walletsRenameWallet} from '../../../core/reducers/wallets';
 import {useAppDispatch, useAppSelector} from '../../../core/store';
 import {getWalletSelector} from '../../../core/selectors/wallets-selectors';
 import {Wallet} from '@degenwallet/types';
+import {walletsRemoveWallet, walletsRenameWallet} from '@degenwallet/redux';
 
 export const WalletDetailsScreen: React.FC<Props<Screen.WALLET_DETAILS>> = ({navigation, route}) => {
   const dispatch = useAppDispatch();
@@ -17,7 +17,7 @@ export const WalletDetailsScreen: React.FC<Props<Screen.WALLET_DETAILS>> = ({nav
   const handleSubmit = (text: string) => {
     onChangeName(text);
     console.log('Name changed to: ', text);
-    return dispatch(walletsRenameWallet(wallet, name));
+    return dispatch(walletsRenameWallet(wallet.id, name));
   };
 
   const handleDelete = (w: Wallet) => {
@@ -25,7 +25,7 @@ export const WalletDetailsScreen: React.FC<Props<Screen.WALLET_DETAILS>> = ({nav
     navigation.goBack();
     navigation.goBack();
     navigation.pop();
-    dispatch(walletsDeleteWallet(w.id)).then(r => r);
+    dispatch(walletsRemoveWallet(w.id)).then(r => r);
   };
 
   return (
