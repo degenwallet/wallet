@@ -1,4 +1,4 @@
-import {TouchableNativeFeedback, Platform, TouchableHighlight, View} from 'react-native';
+import {Platform, TouchableHighlight, TouchableNativeFeedback, View} from 'react-native';
 import React from 'react';
 
 export const Touchable = (props: any) => {
