@@ -15,8 +15,7 @@ import * as Yup from 'yup';
 import {walletName} from '../../../core/selectors/wallets-selectors';
 import {GetAssetResource} from '../../../assets/asset-resource';
 
-import {WalletType} from '@degenwallet/types';
-
+import {Account, WalletType} from '@degenwallet/types';
 
 export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navigation}) => {
   const [name, onChangeName] = React.useState('');
@@ -34,15 +33,12 @@ export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navig
 
   const handleSubmit = async (name: string, chain: Chain, address: string) => {
     const walletName = name.length === 0 ? defaultName(name, chain) : name;
-    const newWallet = {
-      name: walletName,
-      type: WalletType.SINGLE,
-      accounts: [{chain: chain, address: address}],
-    }
-    // dispatch(walletsAddWallet(newWallet)).then(_ => {
-    //     navigation.navigate(Screen.WALLET);
-    //   },
-    // );
+
+    dispatch(
+      walletsAddWallet({name: walletName, type: WalletType.SINGLE, accounts: [new Account(chain, address)]}),
+    ).then(_ => {
+      navigation.navigate(Screen.WALLET);
+    });
   };
 
   type Values = {
