@@ -2,9 +2,8 @@ import {configureStore, Middleware} from '@reduxjs/toolkit';
 import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE} from 'redux-persist';
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 import {combineReducers} from 'redux';
-import {AssetsReducer, SettingsReducer} from '@degenwallet/redux';
+import {AssetsReducer, SettingsReducer, WalletsReducer} from '@degenwallet/redux';
 import {MMKVStorage} from './MMKVStorage';
-import wallets from '../../../core/reducers/wallets';
 
 const persistConfig = {
   key: 'root_v11',
@@ -13,7 +12,7 @@ const persistConfig = {
 };
 
 export const reducers = combineReducers({
-  wallets,
+  wallets: WalletsReducer,
   settings: SettingsReducer,
   assets: AssetsReducer,
 });
