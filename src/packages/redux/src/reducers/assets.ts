@@ -9,7 +9,7 @@ import {
   assetsGenericUpdate,
   assetsPriceUpdate,
 } from '../actions/assets_actions';
-import {AppDispatch} from '../../../../core/store';
+import {AppDispatch} from '@degenwallet/store';
 
 export type AssetStore = {
   balance: string;
@@ -92,7 +92,7 @@ export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
       });
       return {
         ...state,
-        generic_list: list,
+        generic_list: Object.fromEntries(action.payload.map(asset => [asset.asset, asset])),
       };
     })
     .addCase(assetsBalancesUpdate, (state, action) => {

@@ -3,7 +3,8 @@ import {SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
 import {Props, Screen} from '@degenwallet/navigation';
 import {Colors, DegenButtonStyle, Spacing} from '@degenwallet/styles';
 import {DegenButton} from '@degenwallet/views';
-import {useAppDispatch, useAppSelector} from '../../../core/store';
+import {useAppDispatch, useAppSelector} from '@degenwallet/store';
+
 import {getWalletSelector} from '../../../core/selectors/wallets-selectors';
 import {Wallet} from '@degenwallet/types';
 import {walletsRemoveWallet, walletsRenameWallet} from '@degenwallet/redux';

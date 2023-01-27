@@ -26,13 +26,25 @@ export class FormListItem extends React.Component<FormListItemProps> {
       case FormListImageType.chevron:
         return require('./assets/chevron.png');
       case FormListImageType.info:
-        return require('./assets/info.png');
+        return require('./assets/more.png');
+    }
+  }
+
+  getRightImageSize(type: FormListImageType) {
+    switch (type) {
+      case FormListImageType.chevron:
+        return 12;
+      case FormListImageType.info:
+        return 20;
     }
   }
 
   render() {
     const rightPaddingLeft = this.props.subtitle !== undefined ? 0 : 16;
-    const rightImage = this.getRightImage(this.props.rightImage || FormListImageType.chevron);
+    const imageType = this.props.rightImage || FormListImageType.chevron;
+    const rightImage = this.getRightImage(imageType);
+    const rightImageSize = this.getRightImageSize(imageType);
+    const rightImageMargin = imageType === FormListImageType.chevron ? 0 : 8;
     const rightDisabled = this.props.rightImage === FormListImageType.chevron;
 
     return (
@@ -53,10 +65,19 @@ export class FormListItem extends React.Component<FormListItemProps> {
           </View>
           {this.props.rightImage ? (
             <Touchable
-              style={{...styles.touch, ...styles.right_container, ...this.props.style, paddingLeft: rightPaddingLeft}}
+              style={{
+                ...styles.right_container,
+                ...this.props.style,
+                paddingLeft: rightPaddingLeft,
+                margin: rightImageMargin,
+              }}
               disabled={rightDisabled}
-              onPress={this.props.onRightPress}>
-              <Image style={styles.right_container_image} source={rightImage} />
+              onPress={this.props.onRightPress}
+              underlayColor={Colors.BLACK}>
+              <Image
+                style={{...styles.right_container_image, height: rightImageSize, width: rightImageSize}}
+                source={rightImage}
+              />
             </Touchable>
           ) : undefined}
         </View>
@@ -112,9 +133,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'center',
     paddingRight: 16,
+    borderRadius: 6,
   },
-  right_container_image: {
-    height: 12,
-    width: 12,
-  },
+  right_container_image: {},
 });
