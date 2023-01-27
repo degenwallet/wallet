@@ -31,12 +31,13 @@ export const GetAssetSelector = createSelector(
 );
 
 export const GetTotalFiatValueSelector = createSelector(getAssetsForWalletMap, assets => {
-  const fiatValue = assets.fiat_value || {
-    value: 0,
-    value_change: 0,
-    value_change_percentage: 0,
-  };
-  return fiatValue;
+  return (
+    assets.fiat_value || {
+      value: 0,
+      value_change: 0,
+      value_change_percentage: 0,
+    }
+  );
 });
 
 export const GetAssetTotalFiatValueSelector = createSelector(
