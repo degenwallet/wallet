@@ -8,7 +8,7 @@ import {
   assetsFiatUpdate,
   assetsGenericUpdate,
   assetsPriceUpdate,
-} from '../actions/AssetsActions';
+} from '../actions/assets_actions';
 import {AppDispatch} from '../../core/store';
 
 export type AssetStore = {

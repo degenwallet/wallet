@@ -1,10 +1,7 @@
 import {createAction} from '@reduxjs/toolkit';
 import {AssetsPriceMap, BalancesMap} from '../reducers/assets';
 import {AssetResource} from '../../assets/asset-resource';
-
-function withPayloadType<T>() {
-  return (t: T) => ({payload: t});
-}
+import {withPayloadType} from '.';
 
 export const assetsBalancesUpdate = createAction(
   'assets.balances.update',
