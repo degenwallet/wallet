@@ -88,7 +88,6 @@ export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
     .addCase(assetsGenericUpdate, (state, action) => {
       const list: AssetResources = {};
       action.payload.forEach(asset => {
-        console.log('update generic asset error: ', asset);
         list[asset.asset] = asset;
       });
       return {
