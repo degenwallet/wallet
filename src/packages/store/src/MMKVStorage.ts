@@ -7,7 +7,7 @@ const storage = new MMKV({
   encryptionKey: 'degen-wallet-key',
 });
 
-export const reduxStorage: Storage = {
+export const MMKVStorage: Storage = {
   setItem: (key, value) => {
     storage.set(key, value);
     return Promise.resolve(true);

@@ -1,5 +1,5 @@
 import {createSelector} from '@reduxjs/toolkit';
-import {AppState} from '../store';
+import {AppState} from '@degenwallet/store';
 import {Asset, AssetInfo, AssetItem} from '@degenwallet/chain-types';
 import {AssetResource} from '../../assets/asset-resource';
 import {AssetDetails} from '@degenwallet/chain-types/src/asset-item';
@@ -31,12 +31,13 @@ export const GetAssetSelector = createSelector(
 );
 
 export const GetTotalFiatValueSelector = createSelector(getAssetsForWalletMap, assets => {
-  const fiatValue = assets.fiat_value || {
-    value: 0,
-    value_change: 0,
-    value_change_percentage: 0,
-  };
-  return fiatValue;
+  return (
+    assets.fiat_value || {
+      value: 0,
+      value_change: 0,
+      value_change_percentage: 0,
+    }
+  );
 });
 
 export const GetAssetTotalFiatValueSelector = createSelector(

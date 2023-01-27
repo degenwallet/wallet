@@ -9,7 +9,7 @@ import {
   assetsGenericUpdate,
   assetsPriceUpdate,
 } from '../actions/assets_actions';
-import {AppDispatch} from '../../../../core/store';
+import {AppDispatch} from '@degenwallet/store';
 
 export type AssetStore = {
   balance: string;
@@ -86,14 +86,9 @@ export const marketUpdateTotalFiatValue = (wallet_id: string) => async (dispatch
 export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
   builder
     .addCase(assetsGenericUpdate, (state, action) => {
-      const list: AssetResources = {};
-      action.payload.forEach(asset => {
-        console.log('update generic asset error: ', asset);
-        list[asset.asset] = asset;
-      });
       return {
         ...state,
-        generic_list: list,
+        generic_list: Object.fromEntries(action.payload.map(asset => [asset.asset, asset])),
       };
     })
     .addCase(assetsBalancesUpdate, (state, action) => {
