@@ -1,8 +1,7 @@
 import {combineReducers} from 'redux';
 
 import wallets from './reducers/wallets';
-import {AssetsReducer} from '../redux/reducers/assets';
-import {SettingsReducer} from '../redux/reducers/settings';
+import {AssetsReducer, SettingsReducer} from '@degenwallet/redux';
 
 export default combineReducers({
   wallets,

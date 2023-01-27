@@ -1,7 +1,7 @@
 import {createReducer} from '@reduxjs/toolkit';
 import {Currency} from '@degenwallet/types';
 import {setCurrency} from '../actions/settings_actions';
-import {AppDispatch} from '../../core/store';
+import {AppDispatch} from '../../../../core/store';
 
 interface SettingsState {
   currency: string;

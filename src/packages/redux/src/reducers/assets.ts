@@ -1,5 +1,5 @@
 import {Asset, AssetBalance} from '@degenwallet/chain-types';
-import {AssetResource, AssetResources, GetAssetResource} from '../../assets/asset-resource';
+import {AssetResource, AssetResources, GetAssetResource} from '../../../../assets/asset-resource';
 import {AssetPrice, FiatValue, fromBigNumber, Price, Wallet} from '@degenwallet/types';
 import {createReducer} from '@reduxjs/toolkit';
 import {
@@ -9,7 +9,7 @@ import {
   assetsGenericUpdate,
   assetsPriceUpdate,
 } from '../actions/assets_actions';
-import {AppDispatch} from '../../core/store';
+import {AppDispatch} from '../../../../core/store';
 
 export type AssetStore = {
   balance: string;
