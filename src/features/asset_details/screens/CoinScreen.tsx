@@ -9,7 +9,7 @@ import {
   GetAssetTotalFiatValueSelector,
 } from '../../../core/selectors/assets-selectors';
 import {GetCurrentWallet} from '../../../core/selectors/wallets-selectors';
-import {useAppSelector} from '../../../core/store';
+import {useAppSelector} from '@degenwallet/store';
 
 export const CoinScreen: React.FC<Props<Screen.COIN>> = ({route, navigation}) => {
   const {asset} = route.params;

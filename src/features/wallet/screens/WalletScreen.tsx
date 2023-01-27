@@ -6,7 +6,7 @@ import {Asset} from '@degenwallet/chain-types';
 import {Colors} from '@degenwallet/styles';
 import {Wallet} from '@degenwallet/types';
 import {WalletHeaderAction} from '@degenwallet/views/src/WalletHeader';
-import {useAppDispatch, useAppSelector} from '../../../core/store';
+import {useAppDispatch, useAppSelector} from '@degenwallet/store';
 import {GetAssetsSelector, GetTotalFiatValueSelector} from '../../../core/selectors/assets-selectors';
 import {GetCurrentWallet} from '../../../core/selectors/wallets-selectors';
 import {GetCurrencySelector} from '../../../core/selectors/settings-selectors';

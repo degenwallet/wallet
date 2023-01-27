@@ -11,7 +11,7 @@ import {
   WalletScreen,
   WelcomeScreen,
 } from '../../../core/screens';
-import {useAppSelector} from '../../../core/store';
+import {useAppSelector} from '@degenwallet/store';
 import {SettingsNavigator} from '../../settings/screens/SettingsStack';
 import {SelectAssetNavigator} from '../../select_assets/screens/SelectAssetNavigator';
 
