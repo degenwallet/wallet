@@ -22,8 +22,8 @@ export const walletsRemoveWallet = (wallet_id: string) => async (dispatch: AppDi
   return dispatch(removeWallet(wallet_id));
 };
 
-export const walletsSelectWallet = (wallet: Wallet) => async (dispatch: AppDispatch) => {
-  return dispatch(selectWallet(wallet.id));
+export const walletsSelectWallet = (wallet_id: string) => async (dispatch: AppDispatch) => {
+  return dispatch(selectWallet(wallet_id));
 };
 
 export const walletsRenameWallet = (wallet_id: string, name: string) => async (dispatch: AppDispatch) => {

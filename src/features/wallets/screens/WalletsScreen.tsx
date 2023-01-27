@@ -18,7 +18,7 @@ export const WalletsScreen: React.FC<Props<Screen.WALLETS>> = ({navigation}) => 
     //Is there a better way to handle wallet deletion?
     navigation.goBack();
     navigation.pop();
-    dispatch(walletsSelectWallet(wallet));
+    dispatch(walletsSelectWallet(wallet.id));
   };
 
   const handleDetails = (wallet: Wallet) => {
