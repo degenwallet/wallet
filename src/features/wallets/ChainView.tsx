@@ -36,7 +36,6 @@ const styles = StyleSheet.create({
   },
   touch: {
     borderRadius: 12,
-    margin: 12,
     marginVertical: 6,
     backgroundColor: Colors.LIGHT_BLACK,
   },

@@ -1,7 +1,7 @@
 import React from 'react';
 import {FlatList, SafeAreaView, StyleSheet} from 'react-native';
 import {Props, Screen} from '@degenwallet/navigation';
-import {Colors} from '@degenwallet/styles';
+import {Colors, Spacing} from '@degenwallet/styles';
 import {ChainList} from '@degenwallet/chain-types';
 import {ChainView} from '../ChainView';
 
@@ -11,6 +11,7 @@ export const SelectChainScreen: React.FC<Props<Screen.SELECT_CHAIN>> = ({route, 
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
+        style={{paddingHorizontal: Spacing.screen.padding / 2}}
         data={chains}
         renderItem={({item}) => (
           <ChainView
