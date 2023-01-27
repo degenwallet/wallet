@@ -86,10 +86,6 @@ export const marketUpdateTotalFiatValue = (wallet_id: string) => async (dispatch
 export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
   builder
     .addCase(assetsGenericUpdate, (state, action) => {
-      const list: AssetResources = {};
-      action.payload.forEach(asset => {
-        list[asset.asset] = asset;
-      });
       return {
         ...state,
         generic_list: Object.fromEntries(action.payload.map(asset => [asset.asset, asset])),
