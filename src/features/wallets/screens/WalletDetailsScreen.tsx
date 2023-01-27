@@ -4,7 +4,7 @@ import {Props, Screen} from '@degenwallet/navigation';
 import {Colors, DegenButtonStyle, Spacing} from '@degenwallet/styles';
 import {DegenButton} from '@degenwallet/views';
 import {walletsDeleteWallet, walletsRenameWallet} from '../../../core/reducers/wallets';
-import {useAppDispatch, useAppSelector} from '../../../core/store';
+import {useAppDispatch, useAppSelector} from '@degenwallet/store';
 import {getWalletSelector} from '../../../core/selectors/wallets-selectors';
 import {Wallet} from '@degenwallet/types';
 

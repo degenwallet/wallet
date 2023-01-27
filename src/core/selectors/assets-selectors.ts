@@ -1,5 +1,5 @@
 import {createSelector} from '@reduxjs/toolkit';
-import {AppState} from '../store';
+import {AppState} from '@degenwallet/store';
 import {Asset, AssetInfo, AssetItem} from '@degenwallet/chain-types';
 import {AssetResource} from '../../assets/asset-resource';
 import {AssetDetails} from '@degenwallet/chain-types/src/asset-item';

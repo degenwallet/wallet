@@ -1,0 +1,28 @@
+{
+  "name": "@degenwallet/store",
+  "version": "0.0.0",
+  "description": "",
+  "author": "tim <104884878@users.noreply.github.com",
+  "homepage": "https://github.com/degenwallet/wallet#readme",
+  "license": "ISC",
+  "main": "src/index.ts",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
+  "dependencies": {
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/degenwallet/wallet.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/degenwallet/wallet/issues"
+  }
+}

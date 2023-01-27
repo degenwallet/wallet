@@ -1,5 +1,5 @@
 import {createSelector} from '@reduxjs/toolkit';
-import {AppState} from '../store';
+import {AppState} from '@degenwallet/store';
 
 export const GetCurrencySelector = createSelector(
   (state: AppState) => state.settings,

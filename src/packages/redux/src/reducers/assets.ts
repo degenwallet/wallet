@@ -9,7 +9,7 @@ import {
   assetsGenericUpdate,
   assetsPriceUpdate,
 } from '../actions/assets_actions';
-import {AppDispatch} from '../../../../core/store';
+import {AppDispatch} from '@degenwallet/store';
 
 export type AssetStore = {
   balance: string;
