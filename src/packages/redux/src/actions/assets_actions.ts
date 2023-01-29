@@ -2,7 +2,7 @@ import {createAction} from '@reduxjs/toolkit';
 import {AssetsPriceMap, BalancesMap} from '../reducers/assets';
 import {AssetResource} from '../../../../assets/asset-resource';
 import {withPayloadType} from './index';
-import {AppDispatch} from '../../../../core/store';
+import {AppDispatch} from '@degenwallet/store';
 import {AssetPrice, Wallet} from '@degenwallet/types';
 import {AssetBalance} from '@degenwallet/chain-types';
 
