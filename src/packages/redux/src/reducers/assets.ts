@@ -45,11 +45,6 @@ const INITIAL_STATE: AssetsState = {
 export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
   builder
     .addCase(assetsAddToList, (state, action) => {
-      const list: AssetResources = {};
-      action.payload.forEach(asset => {
-        console.log('update generic asset error: ', asset);
-        list[asset.asset] = asset;
-      });
       return {
         ...state,
         generic_list: Object.fromEntries(action.payload.map(asset => [asset.asset, asset])),
