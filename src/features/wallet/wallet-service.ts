@@ -1,10 +1,10 @@
 import {
-  assetAddToListThunk,
-  assetsFiatTotalUpdateThunk,
-  assetsFiatUpdateThunk,
-  assetsPriceUpdateThunk,
+  addToAssetsList,
   BalancesMap,
-  balancesUpdateThunk,
+  updateAssetsBalance,
+  updateAssetsFiatValue,
+  updateAssetsPrice,
+  updateAssetsTotalFiatValue,
 } from '@degenwallet/redux';
 import {Asset, AssetBalance, Chain} from '@degenwallet/chain-types';
 import {AppDispatch} from '@degenwallet/store';
@@ -28,9 +28,9 @@ export class WalletService {
       .flat()
       .map(asset => new AssetBalance(asset, BigInt(0)));
 
-    return dispatch(assetAddToListThunk(assetsResource))
+    return dispatch(addToAssetsList(assetsResource))
       .then(_ => {
-        return dispatch(balancesUpdateThunk(wallet, defaultAssets));
+        return dispatch(updateAssetsBalance(wallet, defaultAssets));
       })
       .then(_ => {
         return this.assetService.getAssets(wallet.accounts);
@@ -39,7 +39,7 @@ export class WalletService {
         return this.balanceService.getBalances(wallet.accounts, assets);
       })
       .then(assets => {
-        return dispatch(balancesUpdateThunk(wallet, assets));
+        return dispatch(updateAssetsBalance(wallet, assets));
       })
       .then(assets => {
         return this.updatePrices(dispatch, wallet, currency, assets.payload.balances);
@@ -58,15 +58,15 @@ export class WalletService {
         Object.keys(balances).map(key => Asset.fromID(key)),
       )
       .then(prices => {
-        return dispatch(assetsPriceUpdateThunk(prices.prices)).then(_ => {
+        return dispatch(updateAssetsPrice(prices.prices)).then(_ => {
           return this.updateFiat(dispatch, wallet, prices.prices);
         });
       });
   }
 
   updateFiat(dispatch: AppDispatch, wallet: Wallet, prices: Price[]) {
-    return dispatch(assetsFiatUpdateThunk(wallet.id, prices)).then(_ =>
-      dispatch(assetsFiatTotalUpdateThunk(wallet.id)),
+    return dispatch(updateAssetsFiatValue(wallet.id, prices)).then(_ =>
+      dispatch(updateAssetsTotalFiatValue(wallet.id)),
     );
   }
 }
