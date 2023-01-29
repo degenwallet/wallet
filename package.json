@@ -43,6 +43,7 @@
     "@degenwallet/types": "*",
     "@degenwallet/views": "*",
     "@degenwallet/redux": "*",
+    "@degenwallet/store": "*",
     "@react-native-clipboard/clipboard": "1.11.1",
     "@react-navigation/native": "6.1.2",
     "@react-navigation/native-stack": "6.9.8",
