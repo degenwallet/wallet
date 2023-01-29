@@ -1,15 +1,14 @@
-import {Asset, AssetBalance} from '@degenwallet/chain-types';
-import {AssetResource, AssetResources, GetAssetResource} from '../../../../assets/asset-resource';
-import {AssetPrice, FiatValue, fromBigNumber, Price, Wallet} from '@degenwallet/types';
+import {Asset} from '@degenwallet/chain-types';
+import {AssetResources, GetAssetResource} from '../../../../assets/asset-resource';
+import {FiatValue, fromBigNumber, Price} from '@degenwallet/types';
 import {createReducer} from '@reduxjs/toolkit';
 import {
+  assetsAddToList,
   assetsBalancesUpdate,
   assetsFiatTotalUpdate,
   assetsFiatUpdate,
-  assetsGenericUpdate,
   assetsPriceUpdate,
 } from '../actions/assets_actions';
-import {AppDispatch} from '@degenwallet/store';
 
 export type AssetStore = {
   balance: string;
@@ -43,49 +42,9 @@ const INITIAL_STATE: AssetsState = {
   prices: {},
 };
 
-export const assetAddToList = (assets: AssetResource[]) => {
-  return async (dispatch: AppDispatch) => {
-    return dispatch(assetsGenericUpdate(assets));
-  };
-};
-
-export const balancesUpdate = (wallet: Wallet, balances: AssetBalance[]) => {
-  return async (dispatch: AppDispatch) => {
-    const balancesMap: BalancesMap = Object.fromEntries(
-      balances.map(balance => [balance.asset.getId(), balance.available.toString(10)]),
-    );
-    return dispatch(assetsBalancesUpdate({wallet_id: wallet.id, balances: balancesMap}));
-  };
-};
-
-export const mapPricesToMap = (prices: AssetPrice[]): AssetsPriceMap => {
-  const pricesMap: AssetsPriceMap = {};
-  prices.map(
-    x =>
-      (pricesMap[x.asset.getId()] = {
-        price: x.price,
-        change_24h: x.change_24h,
-      }),
-  );
-  return pricesMap;
-};
-
-export const marketUpdatePrices = (prices: AssetPrice[]) => async (dispatch: AppDispatch) => {
-  return dispatch(assetsPriceUpdate(mapPricesToMap(prices)));
-};
-
-export const marketUpdateAssetFiatValue =
-  (wallet_id: string, prices: AssetPrice[]) => async (dispatch: AppDispatch) => {
-    return dispatch(assetsFiatUpdate({wallet_id, prices: mapPricesToMap(prices)}));
-  };
-
-export const marketUpdateTotalFiatValue = (wallet_id: string) => async (dispatch: AppDispatch) => {
-  return dispatch(assetsFiatTotalUpdate({wallet_id}));
-};
-
 export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
   builder
-    .addCase(assetsGenericUpdate, (state, action) => {
+    .addCase(assetsAddToList, (state, action) => {
       return {
         ...state,
         generic_list: Object.fromEntries(action.payload.map(asset => [asset.asset, asset])),
