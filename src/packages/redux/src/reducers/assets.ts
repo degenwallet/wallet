@@ -3,10 +3,10 @@ import {AssetResources, GetAssetResource} from '../../../../assets/asset-resourc
 import {FiatValue, fromBigNumber, Price} from '@degenwallet/types';
 import {createReducer} from '@reduxjs/toolkit';
 import {
+  assetsAddToList,
   assetsBalancesUpdate,
   assetsFiatTotalUpdate,
   assetsFiatUpdate,
-  assetsAddToList,
   assetsPriceUpdate,
 } from '../actions/assets_actions';
 
@@ -52,7 +52,7 @@ export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
       });
       return {
         ...state,
-        generic_list: list,
+        generic_list: Object.fromEntries(action.payload.map(asset => [asset.asset, asset])),
       };
     })
     .addCase(assetsBalancesUpdate, (state, action) => {

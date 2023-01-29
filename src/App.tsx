@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {RootStackParamList} from '@degenwallet/navigation';
 import {Provider} from 'react-redux';
-import {store, persistor} from './core/store';
+import {store, persistor} from '@degenwallet/store';
 import {Main} from './features/main/screens/Main';
 import {PersistGate} from 'redux-persist/integration/react';
 

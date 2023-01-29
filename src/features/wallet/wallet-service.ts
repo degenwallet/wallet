@@ -24,12 +24,9 @@ export class WalletService {
     const assetResource = GetAssetResources(wallet.accounts[0].chain);
     const assetsResource = Object.keys(assetResource.assets).map(key => assetResource.assets[key]);
     const defaultAssets = wallet.accounts
-      .map(el => el.chain)
-      .map(el => this.defaultAssets(el))
+      .map(el => this.defaultAssets(el.chain))
       .flat()
-      .map(asset => {
-        return new AssetBalance(asset, BigInt(0));
-      });
+      .map(asset => new AssetBalance(asset, BigInt(0)));
 
     return dispatch(assetAddToListThunk(assetsResource))
       .then(_ => {

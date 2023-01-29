@@ -1,21 +1,29 @@
-import reducers from './reducers';
-import {configureStore} from '@reduxjs/toolkit';
+import {configureStore, Middleware} from '@reduxjs/toolkit';
 import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE} from 'redux-persist';
-import {reduxStorage} from './storage';
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
+import {combineReducers} from 'redux';
+import {AssetsReducer, SettingsReducer, WalletsReducer} from '@degenwallet/redux';
+import {MMKVStorage} from './MMKVStorage';
 
 const persistConfig = {
   key: 'root_v11',
-  storage: reduxStorage,
+  storage: MMKVStorage,
   version: 1,
 };
 
+export const reducers = combineReducers({
+  wallets: WalletsReducer,
+  settings: SettingsReducer,
+  assets: AssetsReducer,
+});
+
 const persistedReducer = persistReducer(persistConfig, reducers);
 
-// if (__DEV__) {
-//   const createDebugger = require('redux-flipper').default;
-//   middlewares.push(createDebugger());
-// }
+const middlewares: Middleware<any>[] = [];
+if (__DEV__) {
+  const createDebugger = require('redux-flipper').default;
+  middlewares.push(createDebugger());
+}
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -27,7 +35,8 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
       immutableCheck: false,
-    }),
+    }).concat(middlewares),
+  devTools: __DEV__,
 });
 export const persistor = persistStore(store);
 
