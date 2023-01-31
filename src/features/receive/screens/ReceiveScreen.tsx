@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView, Share, StyleSheet, Text, View} from 'react-native';
-import {Props, Screen} from '@degenwallet/navigation';
+import {Screen} from '../../../navigation';
 import {Colors, DegenButtonStyle} from '@degenwallet/styles';
 import QRCode from 'react-native-qrcode-svg';
 import {DegenButton, Touchable} from '@degenwallet/core-components';
@@ -9,8 +9,16 @@ import {useAppSelector} from '@degenwallet/store';
 import {GetAssetSelector, GetAssetTitle} from '../../../core/selectors/assets-selectors';
 import {GetCurrentWallet, GetCurrentWalletAccount} from '../../../core/selectors/wallets-selectors';
 import {AssetTypeList} from '@degenwallet/chain-types';
+import {RouteProp} from '@react-navigation/core';
+import {WalletStackParamList} from '../../../navigation/WalletStack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-export const ReceiveScreen: React.FC<Props<Screen.RECEIVE>> = ({navigation, route}) => {
+export type Props = {
+  route: RouteProp<WalletStackParamList, Screen.RECEIVE>;
+  navigation: NativeStackNavigationProp<WalletStackParamList, Screen.RECEIVE>;
+};
+
+export const ReceiveScreen: React.FC<Props> = ({navigation, route}) => {
   const state = useAppSelector(s => s);
   const currentWallet = GetCurrentWallet(state);
   const currentAccount = GetCurrentWalletAccount(state, {

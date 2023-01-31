@@ -1,6 +1,5 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
-import {Props, Screen} from '@degenwallet/navigation';
 import {Colors, DegenButtonStyle, Spacing} from '@degenwallet/styles';
 import {DegenButton} from '@degenwallet/views';
 import {useAppDispatch, useAppSelector} from '@degenwallet/store';
@@ -8,8 +7,17 @@ import {useAppDispatch, useAppSelector} from '@degenwallet/store';
 import {getWalletSelector} from '../../../core/selectors/wallets-selectors';
 import {Wallet} from '@degenwallet/types';
 import {walletsRemoveWallet, walletsRenameWallet} from '@degenwallet/redux';
+import {RouteProp} from '@react-navigation/core';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {SettingsScreenParamList} from '../../../navigation/SettingsStack';
+import {Screen} from '../../../navigation';
 
-export const WalletDetailsScreen: React.FC<Props<Screen.WALLET_DETAILS>> = ({navigation, route}) => {
+export type Props = {
+  route: RouteProp<SettingsScreenParamList, Screen.WALLET_DETAILS>;
+  navigation: NativeStackNavigationProp<SettingsScreenParamList, Screen.WALLET_DETAILS>;
+};
+
+export const WalletDetailsScreen: React.FC<Props> = ({navigation, route}) => {
   const dispatch = useAppDispatch();
   const state = useAppSelector(s => s);
   const wallet = getWalletSelector(state, route.params.wallet.id);

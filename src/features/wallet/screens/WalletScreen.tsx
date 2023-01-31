@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {FlatList, RefreshControl, SafeAreaView, StyleSheet} from 'react-native';
-import {Props, Screen, ScreenNavigator, SelectAssetType} from '@degenwallet/navigation';
 import {AssetListItem, WalletHeader} from '@degenwallet/views';
 import {Asset} from '@degenwallet/chain-types';
 import {Colors} from '@degenwallet/styles';
@@ -11,8 +10,17 @@ import {GetAssetsSelector, GetTotalFiatValueSelector} from '../../../core/select
 import {GetCurrentWallet} from '../../../core/selectors/wallets-selectors';
 import {GetCurrencySelector} from '../../../core/selectors/settings-selectors';
 import {WalletService} from '../wallet-service';
+import {RouteProp} from '@react-navigation/core';
+import {Screen, SelectAssetType} from '../../../navigation';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {WalletStackParamList} from '../../../navigation/WalletStack';
 
-export const WalletScreen: React.FC<Props<Screen.WALLET>> = ({navigation}) => {
+export type Props = {
+  route: RouteProp<WalletStackParamList, Screen.WALLET>;
+  navigation: NativeStackNavigationProp<WalletStackParamList, Screen.WALLET>;
+};
+
+export const WalletScreen: React.FC<Props> = ({navigation}) => {
   const [refreshing, setRefreshing] = React.useState(true);
 
   const dispatch = useAppDispatch();
@@ -34,14 +42,14 @@ export const WalletScreen: React.FC<Props<Screen.WALLET>> = ({navigation}) => {
     switch (action) {
       case WalletHeaderAction.RECEIVE:
         // @ts-ignore
-        navigation.navigate(ScreenNavigator.SELECT_ASSET, {
+        navigation.navigate(Screen.WALLET_STACK, {
           screen: Screen.SELECT_ASSET,
           params: {type: SelectAssetType.RECEIVE},
         });
         break;
       case WalletHeaderAction.BUY:
         // @ts-ignore
-        navigation.navigate(ScreenNavigator.SELECT_ASSET, {
+        navigation.navigate(Screen.WALLET_STACK, {
           screen: Screen.SELECT_ASSET,
           params: {type: SelectAssetType.BUY},
         });

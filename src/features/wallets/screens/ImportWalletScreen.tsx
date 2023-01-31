@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {Alert, SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
-import {Props, Screen} from '@degenwallet/navigation';
 import {Colors, DegenButtonStyle} from '@degenwallet/styles';
 import {DegenButton} from '@degenwallet/views';
 import {walletsAddWallet} from '@degenwallet/redux';
@@ -12,8 +11,18 @@ import {walletName} from '../../../core/selectors/wallets-selectors';
 import {AnyAddress} from '@degenwallet/react-native-wallet-core/lib/typescript/address';
 import {TWAsset} from '@degenwallet/market-provider/src/providers/trustwallet/TWAsset';
 import {WalletType} from '@degenwallet/types';
+import {RouteProp} from '@react-navigation/core';
+import {Screen} from '../../../navigation';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {OnboardingStackParamList} from '../../../navigation/OnboardingStack';
+import {WalletStackParamList} from '../../../navigation/WalletStack';
 
-export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navigation}) => {
+export type Props = {
+  route: RouteProp<OnboardingStackParamList, Screen.IMPORT_WALLET>;
+  navigation: NativeStackNavigationProp<OnboardingStackParamList & WalletStackParamList, Screen.IMPORT_WALLET>;
+};
+
+export const ImportWalletScreen: React.FC<Props> = ({navigation}) => {
   const [name, onChangeName] = React.useState('');
   const [value, onChangeText] = React.useState('');
   const [selectedChain, onChangeSelectedChain] = React.useState(Chain.BNB_CHAIN);

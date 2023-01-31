@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import {Props, Screen} from '@degenwallet/navigation';
 import {Colors} from '@degenwallet/styles';
 import {WalletHeader, WalletHeaderAction} from '@degenwallet/views/src/WalletHeader';
 import {
@@ -10,8 +9,17 @@ import {
 } from '../../../core/selectors/assets-selectors';
 import {GetCurrentWallet} from '../../../core/selectors/wallets-selectors';
 import {useAppSelector} from '@degenwallet/store';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RouteProp} from '@react-navigation/core';
+import {WalletStackParamList} from '../../../navigation/WalletStack';
+import {Screen} from '../../../navigation';
 
-export const CoinScreen: React.FC<Props<Screen.COIN>> = ({route, navigation}) => {
+export type Props = {
+  route: RouteProp<WalletStackParamList, Screen.COIN>;
+  navigation: NativeStackNavigationProp<WalletStackParamList, Screen.COIN>;
+};
+
+export const CoinScreen: React.FC<Props> = ({route, navigation}) => {
   const {asset} = route.params;
   const state = useAppSelector(s => s);
   const currentWallet = GetCurrentWallet(state);

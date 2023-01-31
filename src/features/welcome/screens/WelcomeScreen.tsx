@@ -1,11 +1,20 @@
 import React from 'react';
 import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import {Props, Screen} from '@degenwallet/navigation';
 import {Colors, FontWeight, DegenButtonStyle} from '@degenwallet/styles';
 import {DegenButton} from '@degenwallet/core-components/src/DegenButton';
-import { DISPLAY_NAME } from "@degenwallet/config";
+import {DISPLAY_NAME} from '@degenwallet/config';
+import {RouteProp} from '@react-navigation/core';
+import {OnboardingStackParamList} from '../../../navigation/OnboardingStack';
+import {Screen} from '../../../navigation';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {WalletStackParamList} from '../../../navigation/WalletStack';
 
-export const WelcomeScreen: React.FC<Props<Screen.WELCOME>> = ({navigation}) => {
+export type Props = {
+  route: RouteProp<OnboardingStackParamList, Screen.WELCOME>;
+  navigation: NativeStackNavigationProp<OnboardingStackParamList & WalletStackParamList, Screen.WELCOME>;
+};
+
+export const WelcomeScreen: React.FC<Props> = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>

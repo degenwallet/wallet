@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {Linking, SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
-import {Props, Screen} from '@degenwallet/navigation';
 import {Colors, FontWeight, DegenButtonStyle} from '@degenwallet/styles';
 import {FiatProvidersFactory, QuoteFetcher, QuoteResult} from '@degenwallet/fiat-providers';
 import {DegenButton} from '@degenwallet/views';
@@ -11,8 +10,17 @@ import {GetAssetSelector, GetAssetTitle} from '../../../core/selectors/assets-se
 import {BuyButtons} from '../BuyButtons';
 import {ProviderView} from '../ProviderView';
 import {round} from '@degenwallet/types';
+import {RouteProp} from '@react-navigation/core';
+import {WalletStackParamList} from '../../../navigation/WalletStack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {Screen} from '../../../navigation';
 
-export const BuyCryptoScreen: React.FC<Props<Screen.BUY_CRYPTO>> = ({route, navigation}) => {
+export type Props = {
+  route: RouteProp<WalletStackParamList, Screen.BUY_CRYPTO>;
+  navigation: NativeStackNavigationProp<WalletStackParamList, Screen.BUY_CRYPTO>;
+};
+
+export const BuyCryptoScreen: React.FC<Props> = ({route, navigation}) => {
   const {asset} = route.params;
   const state = useAppSelector(s => s);
   const quoteFetcher = new QuoteFetcher(FiatProvidersFactory.new());
