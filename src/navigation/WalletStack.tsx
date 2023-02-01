@@ -78,6 +78,7 @@ export const WalletStack = () => {
         options={({navigation, route}) => ({
           ...HeaderOptions,
           title: selectAssetScreenTitle(route.params.type),
+          presentation: 'modal',
           headerLeft: () =>
             Platform.OS === 'ios' ? (
               <TouchableOpacity onPress={() => navigation.goBack()}>
