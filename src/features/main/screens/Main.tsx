@@ -1,11 +1,13 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {useAppSelector} from '@degenwallet/store';
+import {AppState, useAppSelector} from '@degenwallet/store';
 import {OnboardingStack} from '../../../navigation/OnboardingStack';
 import {WalletStack} from '../../../navigation/WalletStack';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SettingsStack} from '../../../navigation/SettingsStack';
 import {Screen, Theme} from '../../../navigation';
+import {shallowEqual} from 'react-redux';
+import {createSelector} from '@reduxjs/toolkit';
 
 export type AppStackParamList = {
   OnboardingStack: undefined;
@@ -15,8 +17,17 @@ export type AppStackParamList = {
 
 const RootStack = createNativeStackNavigator<AppStackParamList>();
 
-export const Main: () => React.ReactElement = () => {
-  const isOnboarded = useAppSelector(state => state.wallets.wallets.length > 0);
+export const onboardSelector = createSelector(
+  (state: AppState) => state.wallets,
+  wallets => wallets,
+);
+
+export const Main = (): JSX.Element => {
+  // const wallets = useAppSelector(state => state.wallets.wallets, shallowEqual);
+  const state = useAppSelector(state => state);
+  const wallets = onboardSelector(state);
+  const isOnboarded = wallets.wallets.length > 0;
+  console.log('AppWrap before state', state);
   return (
     <NavigationContainer theme={Theme}>
       <RootStack.Navigator
@@ -27,7 +38,6 @@ export const Main: () => React.ReactElement = () => {
           <>
             <RootStack.Screen name={Screen.WALLET_STACK} component={WalletStack} />
             <RootStack.Screen name={Screen.SETTINGS_STACK} component={SettingsStack} />
-            <RootStack.Screen name={Screen.ONBOARDING_STACK} component={OnboardingStack} />
           </>
         )}
       </RootStack.Navigator>

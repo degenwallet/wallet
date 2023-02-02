@@ -10,6 +10,7 @@ import * as React from 'react';
 import {Chain} from '@degenwallet/chain-types';
 import {Wallet} from '@degenwallet/types';
 import {HeaderOptions, Screen} from './index';
+import {OnboardingStack} from './OnboardingStack';
 
 export type SettingsScreenParamList = {
   SettingsScreen: undefined;
@@ -19,6 +20,7 @@ export type SettingsScreenParamList = {
   CommunityScreen: undefined;
   SelectChainScreen: {chain: Chain; selectChain: (chain: Chain) => void};
   WalletDetailsScreen: {wallet: Wallet};
+  OnboardingStack: undefined;
 };
 
 const Stack = createNativeStackNavigator<SettingsScreenParamList>();
@@ -85,6 +87,7 @@ export const SettingsStack = () => {
           title: 'Wallet Info',
         })}
       />
+      <Stack.Screen name={Screen.ONBOARDING_STACK} component={OnboardingStack} />
     </Stack.Navigator>
   );
 };
