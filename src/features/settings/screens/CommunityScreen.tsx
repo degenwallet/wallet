@@ -1,10 +1,18 @@
 import React from 'react';
 import {FlatList, ImageSourcePropType, Linking, SafeAreaView, StyleSheet} from 'react-native';
-import {Props, Screen} from '@degenwallet/navigation';
 import {Colors, DefaultStyles} from '@degenwallet/styles';
 import {FormListItem} from '@degenwallet/views';
+import {RouteProp} from '@react-navigation/core';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {SettingsScreenParamList} from '../../../navigation/SettingsStack';
+import {Screen} from '../../../navigation';
 
-export const CommunityScreen: React.FC<Props<Screen.COMMUNITY>> = ({}) => {
+export type Props = {
+  route: RouteProp<SettingsScreenParamList, Screen.COMMUNITY>;
+  navigation: NativeStackNavigationProp<SettingsScreenParamList, Screen.COMMUNITY>;
+};
+
+export const CommunityScreen: React.FC<Props> = ({}) => {
   const items: {
     title: string;
     onPress: () => void;

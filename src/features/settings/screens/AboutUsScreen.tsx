@@ -1,12 +1,18 @@
 import React from 'react';
 import {FlatList, Image, Linking, SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import {Props, Screen} from '@degenwallet/navigation';
 import {Colors, DefaultStyles, FontWeight} from '@degenwallet/styles';
 import {FormListItem} from '@degenwallet/views';
 import DeviceInfo from 'react-native-device-info';
-import { DISPLAY_NAME, WEBSITE } from "@degenwallet/config";
+import {DISPLAY_NAME, WEBSITE} from '@degenwallet/config';
+import {Screen} from '../../../navigation';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {SettingsScreenParamList} from '../../../navigation/SettingsStack';
 
-export const AboutUsScreen: React.FC<Props<Screen.ABOUT_US>> = ({navigation}) => {
+export type Props = {
+  navigation: NativeStackNavigationProp<SettingsScreenParamList, Screen.ABOUT_US>;
+};
+
+export const AboutUsScreen: React.FC<Props> = ({navigation}) => {
   const items: {
     title: string;
     onPress: () => void;

@@ -1,14 +1,22 @@
 import React from 'react';
 import {FlatList, SafeAreaView, StyleSheet} from 'react-native';
-import {Props, Screen, SelectAssetType} from '@degenwallet/navigation';
 import {Colors} from '@degenwallet/styles';
 import {AssetListItem} from '@degenwallet/views';
 import {GetAssetsSelector} from '../../../core/selectors/assets-selectors';
 import {useAppSelector} from '@degenwallet/store';
 import {GetCurrentWallet} from '../../../core/selectors/wallets-selectors';
 import {Asset} from '@degenwallet/chain-types';
+import {RouteProp} from '@react-navigation/core';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {Screen, SelectAssetType} from '../../../navigation';
+import {WalletStackParamList} from '../../../navigation/WalletStack';
 
-export const SelectAssetScreen: React.FC<Props<Screen.SELECT_ASSET>> = ({route, navigation}) => {
+export type Props = {
+  route: RouteProp<WalletStackParamList, Screen.SELECT_ASSET>;
+  navigation: NativeStackNavigationProp<WalletStackParamList, Screen.SELECT_ASSET>;
+};
+
+export const SelectAssetScreen: React.FC<Props> = ({route, navigation}) => {
   const {type} = route.params;
   const state = useAppSelector(s => s);
   const currentWallet = GetCurrentWallet(state);

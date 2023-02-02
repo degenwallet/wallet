@@ -1,13 +1,19 @@
 import React from 'react';
 import {FlatList, SafeAreaView, StyleSheet} from 'react-native';
-import {Props, Screen} from '@degenwallet/navigation';
+import {Screen} from '../../../navigation';
 import {Colors, DefaultStyles, FontWeight} from '@degenwallet/styles';
 import {FormListItem} from '@degenwallet/views';
 import {CurrencyList} from '@degenwallet/types';
 import {settingsSetCurrency} from '@degenwallet/redux';
 import {useAppDispatch} from '@degenwallet/store';
+import {SettingsScreenParamList} from '../../../navigation/SettingsStack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-export const CurrencyScreen: React.FC<Props<Screen.CURRENCY>> = ({navigation}) => {
+export type Props = {
+  navigation: NativeStackNavigationProp<SettingsScreenParamList, Screen.CURRENCY>;
+};
+
+export const CurrencyScreen: React.FC<Props> = ({navigation}) => {
   const items = CurrencyList;
   const dispatch = useAppDispatch();
 
