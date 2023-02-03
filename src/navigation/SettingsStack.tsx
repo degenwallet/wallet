@@ -87,7 +87,13 @@ export const SettingsStack = () => {
           title: 'Wallet Info',
         })}
       />
-      <Stack.Screen name={Screen.ONBOARDING_STACK} component={OnboardingStack} />
+      <Stack.Screen
+        name={Screen.ONBOARDING_STACK}
+        component={OnboardingStack}
+        options={({}) => ({
+          ...HeaderOptions,
+        })}
+      />
     </Stack.Navigator>
   );
 };
