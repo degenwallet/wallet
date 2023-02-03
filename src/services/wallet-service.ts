@@ -8,7 +8,7 @@ import {
 } from '@degenwallet/redux';
 import {Asset, AssetBalance, Chain} from '@degenwallet/chain-types';
 import {AppDispatch} from '@degenwallet/store';
-import {GetAssetResources} from '../../assets/asset-resource';
+import {GetAssetResources} from '../assets/asset-resource';
 import {MarketFetcher, Price} from '@degenwallet/market-provider';
 import {AssetService, BalanceService} from '@degenwallet/chain-services';
 import {Wallet} from '@degenwallet/types';

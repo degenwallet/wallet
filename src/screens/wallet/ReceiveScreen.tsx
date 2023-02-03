@@ -1,17 +1,17 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView, Share, StyleSheet, Text, View} from 'react-native';
-import {Screen} from '../../../navigation';
+import {Screen} from '../../navigation';
 import {Colors, DegenButtonStyle} from '@degenwallet/styles';
 import QRCode from 'react-native-qrcode-svg';
 import {DegenButton, Touchable} from '@degenwallet/core-components';
 import Clipboard from '@react-native-clipboard/clipboard';
 import {useAppSelector} from '@degenwallet/store';
-import {GetAssetSelector, GetAssetTitle} from '../../../core/selectors/assets-selectors';
-import {GetCurrentWallet, GetCurrentWalletAccount} from '../../../core/selectors/wallets-selectors';
 import {AssetTypeList} from '@degenwallet/chain-types';
 import {RouteProp} from '@react-navigation/core';
-import {WalletStackParamList} from '../../../navigation/WalletStack';
+import {WalletStackParamList} from '../../navigation/WalletStack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {GetCurrentWallet, GetCurrentWalletAccount} from '../../core/selectors/wallets-selectors';
+import {GetAssetSelector, GetAssetTitle} from '../../core/selectors/assets-selectors';
 
 export type Props = {
   route: RouteProp<WalletStackParamList, Screen.RECEIVE>;

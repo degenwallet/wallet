@@ -5,9 +5,8 @@ import {DegenButton} from '@degenwallet/views';
 import {walletsAddWallet} from '@degenwallet/redux';
 import {useAppDispatch, useAppSelector} from '@degenwallet/store';
 import {Asset, Chain} from '@degenwallet/chain-types';
-import {ChainView} from '../ChainView';
+import {ChainView} from '../../../components/ChainView';
 import {GetAssetResource} from '../../../assets/asset-resource';
-import {walletName} from '../../../core/selectors/wallets-selectors';
 import {AnyAddress} from '@degenwallet/react-native-wallet-core/lib/typescript/address';
 import {TWAsset} from '@degenwallet/market-provider/src/providers/trustwallet/TWAsset';
 import {WalletType} from '@degenwallet/types';
@@ -16,6 +15,7 @@ import {Screen} from '../../../navigation';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {OnboardingStackParamList} from '../../../navigation/OnboardingStack';
 import {WalletStackParamList} from '../../../navigation/WalletStack';
+import {walletName} from '../../../core/selectors/wallets-selectors';
 
 export type Props = {
   route: RouteProp<OnboardingStackParamList, Screen.IMPORT_WALLET>;

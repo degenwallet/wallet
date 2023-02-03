@@ -1,5 +1,5 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {WelcomeScreen} from '../features/welcome/screens/WelcomeScreen';
+import {WelcomeScreen} from '../screens/onboard/WelcomeScreen';
 import {ImportWalletScreen} from '../features/wallets/screens/ImportWalletScreen';
 import * as React from 'react';
 import {Chain} from '@degenwallet/chain-types';

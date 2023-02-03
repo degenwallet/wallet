@@ -6,14 +6,14 @@ import {Colors} from '@degenwallet/styles';
 import {Wallet} from '@degenwallet/types';
 import {WalletHeaderAction} from '@degenwallet/views/src/WalletHeader';
 import {useAppDispatch, useAppSelector} from '@degenwallet/store';
-import {GetAssetsSelector, GetTotalFiatValueSelector} from '../../../core/selectors/assets-selectors';
-import {GetCurrentWallet} from '../../../core/selectors/wallets-selectors';
-import {GetCurrencySelector} from '../../../core/selectors/settings-selectors';
-import {WalletService} from '../wallet-service';
+import {WalletService} from '../../services/wallet-service';
 import {RouteProp} from '@react-navigation/core';
-import {Screen, SelectAssetType} from '../../../navigation';
+import {Screen, SelectAssetType} from '../../navigation';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {WalletStackParamList} from '../../../navigation/WalletStack';
+import {WalletStackParamList} from '../../navigation/WalletStack';
+import {GetCurrentWallet} from '../../core/selectors/wallets-selectors';
+import {GetCurrencySelector} from '../../core/selectors/settings-selectors';
+import {GetAssetsSelector, GetTotalFiatValueSelector} from '../../core/selectors/assets-selectors';
 
 export type Props = {
   route: RouteProp<WalletStackParamList, Screen.WALLET>;

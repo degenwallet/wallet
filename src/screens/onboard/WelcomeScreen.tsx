@@ -4,10 +4,10 @@ import {Colors, FontWeight, DegenButtonStyle} from '@degenwallet/styles';
 import {DegenButton} from '@degenwallet/core-components/src/DegenButton';
 import {DISPLAY_NAME} from '@degenwallet/config';
 import {RouteProp} from '@react-navigation/core';
-import {OnboardingStackParamList} from '../../../navigation/OnboardingStack';
-import {Screen} from '../../../navigation';
+import {OnboardingStackParamList} from '../../navigation/OnboardingStack';
+import {Screen} from '../../navigation';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {WalletStackParamList} from '../../../navigation/WalletStack';
+import {WalletStackParamList} from '../../navigation/WalletStack';
 
 export type Props = {
   route: RouteProp<OnboardingStackParamList, Screen.WELCOME>;
@@ -18,7 +18,7 @@ export const WelcomeScreen: React.FC<Props> = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Image style={styles.headerImage} source={require('../../../assets/images/logo.png')} />
+        <Image style={styles.headerImage} source={require('../../assets/images/logo.png')} />
         <Text style={styles.headerTitle}>{DISPLAY_NAME}</Text>
         <Text style={styles.headerDescription}>Experience the magic of DeFi & NTFs</Text>
       </View>

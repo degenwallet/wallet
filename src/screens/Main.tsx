@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {useAppSelector} from '@degenwallet/store';
-import {OnboardingStack} from '../../../navigation/OnboardingStack';
-import {WalletStack} from '../../../navigation/WalletStack';
+import {OnboardingStack} from '../navigation/OnboardingStack';
+import {WalletStack} from '../navigation/WalletStack';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {SettingsStack} from '../../../navigation/SettingsStack';
-import {Screen, Theme} from '../../../navigation';
+import {SettingsStack} from '../navigation/SettingsStack';
+import {Screen, Theme} from '../navigation';
 
 export type AppStackParamList = {
   OnboardingStack: undefined;

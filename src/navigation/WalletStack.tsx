@@ -1,11 +1,11 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Asset} from '@degenwallet/chain-types';
-import {WalletScreen} from '../features/wallet/screens/WalletScreen';
-import {ReceiveScreen} from '../features/receive/screens/ReceiveScreen';
+import {WalletScreen} from '../screens/wallet/WalletScreen';
+import {ReceiveScreen} from '../screens/wallet/ReceiveScreen';
 import {Image, Platform, TouchableOpacity} from 'react-native';
 import * as React from 'react';
-import {BuyCryptoScreen} from '../features/buycrypto/screens/BuyCryptoScreen';
-import {SelectAssetScreen} from '../features/select_assets/screens/SelectAssetScreen';
+import {BuyCryptoScreen} from '../screens/wallet/BuyCryptoScreen';
+import {SelectAssetScreen} from '../screens/wallet/SelectAssetScreen';
 import {HeaderOptions, Screen, SelectAssetType} from './index';
 
 export type WalletStackParamList = {

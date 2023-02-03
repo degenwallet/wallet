@@ -4,13 +4,13 @@ import {Colors, DegenButtonStyle, Spacing} from '@degenwallet/styles';
 import {DegenButton} from '@degenwallet/views';
 import {useAppDispatch, useAppSelector} from '@degenwallet/store';
 
-import {getWalletSelector} from '../../../core/selectors/wallets-selectors';
 import {Wallet} from '@degenwallet/types';
 import {walletsRemoveWallet, walletsRenameWallet} from '@degenwallet/redux';
 import {RouteProp} from '@react-navigation/core';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {SettingsScreenParamList} from '../../../navigation/SettingsStack';
 import {Screen} from '../../../navigation';
+import {getWalletSelector} from '../../../core/selectors/wallets-selectors';
 
 export type Props = {
   route: RouteProp<SettingsScreenParamList, Screen.WALLET_DETAILS>;

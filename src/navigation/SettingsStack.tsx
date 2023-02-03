@@ -1,10 +1,10 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {SettingsScreen} from '../features/settings/screens/SettingsScreen';
+import {SettingsScreen} from '../screens/settings/SettingsScreen';
 import {Image, Platform, TouchableOpacity} from 'react-native';
 import {WalletsScreen} from '../features/wallets/screens/WalletsScreen';
-import {AboutUsScreen} from '../features/settings/screens/AboutUsScreen';
-import {CurrencyScreen} from '../features/settings/screens/CurrencyScreen';
-import {CommunityScreen} from '../features/settings/screens/CommunityScreen';
+import {AboutUsScreen} from '../screens/settings/AboutUsScreen';
+import {CurrencyScreen} from '../screens/settings/CurrencyScreen';
+import {CommunityScreen} from '../screens/settings/CommunityScreen';
 import {WalletDetailsScreen} from '../features/wallets/screens/WalletDetailsScreen';
 import * as React from 'react';
 import {Chain} from '@degenwallet/chain-types';

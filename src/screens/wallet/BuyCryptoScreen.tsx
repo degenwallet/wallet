@@ -1,19 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import {Linking, SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
-import {Colors, FontWeight, DegenButtonStyle} from '@degenwallet/styles';
+import {Colors, DegenButtonStyle, FontWeight} from '@degenwallet/styles';
 import {FiatProvidersFactory, QuoteFetcher, QuoteResult} from '@degenwallet/fiat-providers';
 import {DegenButton} from '@degenwallet/views';
-import {GetCurrencySelector} from '../../../core/selectors/settings-selectors';
 import {useAppSelector} from '@degenwallet/store';
-import {GetCurrentWallet, GetCurrentWalletAccount} from '../../../core/selectors/wallets-selectors';
-import {GetAssetSelector, GetAssetTitle} from '../../../core/selectors/assets-selectors';
-import {BuyButtons} from '../BuyButtons';
-import {ProviderView} from '../ProviderView';
+import {BuyButtons} from '../../components/BuyButtons';
+import {ProviderView} from '../../components/ProviderView';
 import {round} from '@degenwallet/types';
 import {RouteProp} from '@react-navigation/core';
-import {WalletStackParamList} from '../../../navigation/WalletStack';
+import {WalletStackParamList} from '../../navigation/WalletStack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Screen} from '../../../navigation';
+import {Screen} from '../../navigation';
+import {GetCurrencySelector} from '../../core/selectors/settings-selectors';
+import {GetCurrentWallet, GetCurrentWalletAccount} from '../../core/selectors/wallets-selectors';
+import {GetAssetSelector, GetAssetTitle} from '../../core/selectors/assets-selectors';
 
 export type Props = {
   route: RouteProp<WalletStackParamList, Screen.BUY_CRYPTO>;
