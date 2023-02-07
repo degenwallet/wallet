@@ -5,7 +5,7 @@ import {Asset, AssetImageFormatter, Chain} from '@degenwallet/chain-types';
 import {AssetsEndpoints} from '@degenwallet/config';
 import {Colors} from '@degenwallet/styles';
 import {Touchable} from '@degenwallet/core-components';
-import {GetAssetResource} from '../../assets/asset-resource';
+import {GetAssetResource} from '../assets/asset-resource';
 
 export interface ChainViewProps {
   chain: Chain;

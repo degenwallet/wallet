@@ -4,8 +4,8 @@ import {Colors, DefaultStyles} from '@degenwallet/styles';
 import {FormListItem} from '@degenwallet/views';
 import {RouteProp} from '@react-navigation/core';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {SettingsScreenParamList} from '../../../navigation/SettingsStack';
-import {Screen} from '../../../navigation';
+import {SettingsScreenParamList} from '../../navigation/SettingsStack';
+import {Screen} from '../../navigation';
 
 export type Props = {
   route: RouteProp<SettingsScreenParamList, Screen.COMMUNITY>;
@@ -23,28 +23,28 @@ export const CommunityScreen: React.FC<Props> = ({}) => {
       onPress: () => {
         Linking.openURL('https://twitter.com/DegenWalletApp').then(r => r);
       },
-      image: require('../../../assets/images/social/twitter.png'),
+      image: require('../../assets/images/social/twitter.png'),
     },
     {
       title: 'Telegram',
       onPress: () => {
         Linking.openURL('https://t.me/DegenWalletApp').then(r => r);
       },
-      image: require('../../../assets/images/social/telegram.png'),
+      image: require('../../assets/images/social/telegram.png'),
     },
     {
       title: 'Reddit',
       onPress: () => {
         Linking.openURL('https://www.reddit.com/r/DegenWallet').then(r => r);
       },
-      image: require('../../../assets/images/social/reddit.png'),
+      image: require('../../assets/images/social/reddit.png'),
     },
     {
       title: 'GitHub',
       onPress: () => {
         Linking.openURL('https://github.com/degenwallet').then(r => r);
       },
-      image: require('../../../assets/images/social/github.png'),
+      image: require('../../assets/images/social/github.png'),
     },
   ];
 

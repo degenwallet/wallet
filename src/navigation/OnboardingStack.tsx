@@ -1,5 +1,5 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {WelcomeScreen} from '../features/welcome/screens/WelcomeScreen';
+import {WelcomeScreen} from '../screens/onboard/WelcomeScreen';
 import {ImportWalletScreen} from '../features/wallets/screens/ImportWalletScreen';
 import * as React from 'react';
 import {Chain} from '@degenwallet/chain-types';
@@ -16,9 +16,16 @@ const Stack = createNativeStackNavigator<OnboardingStackParamList>();
 
 export const OnboardingStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name={Screen.WELCOME} component={WelcomeScreen} />
-      <Stack.Screen name={Screen.IMPORT_WALLET} component={ImportWalletScreen} />
+      <Stack.Screen
+        options={({}) => ({
+          ...HeaderOptions,
+          title: 'Import Wallet',
+        })}
+        name={Screen.IMPORT_WALLET}
+        component={ImportWalletScreen}
+      />
       <Stack.Screen
         name={Screen.SELECT_CHAIN}
         component={SelectChainScreen}

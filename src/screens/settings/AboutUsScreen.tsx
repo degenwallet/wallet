@@ -4,9 +4,9 @@ import {Colors, DefaultStyles, FontWeight} from '@degenwallet/styles';
 import {FormListItem} from '@degenwallet/views';
 import DeviceInfo from 'react-native-device-info';
 import {DISPLAY_NAME, WEBSITE} from '@degenwallet/config';
-import {Screen} from '../../../navigation';
+import {Screen} from '../../navigation';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {SettingsScreenParamList} from '../../../navigation/SettingsStack';
+import {SettingsScreenParamList} from '../../navigation/SettingsStack';
 
 export type Props = {
   navigation: NativeStackNavigationProp<SettingsScreenParamList, Screen.ABOUT_US>;
@@ -57,7 +57,7 @@ export const AboutUsScreen: React.FC<Props> = ({navigation}) => {
         renderItem={({item}) => <FormListItem title={item.title} onPress={item.onPress} />}
         ListHeaderComponent={
           <View style={styles.header}>
-            <Image style={styles.logo} source={require('../../../assets/images/logo.png')} />
+            <Image style={styles.logo} source={require('../../assets/images/logo.png')} />
             <Text style={styles.name}>{DISPLAY_NAME}</Text>
             <Text style={styles.version}>
               Version {DeviceInfo.getVersion()} ({DeviceInfo.getBuildNumber()})

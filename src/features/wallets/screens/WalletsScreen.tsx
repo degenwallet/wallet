@@ -3,7 +3,6 @@ import {FlatList, SafeAreaView, StyleSheet} from 'react-native';
 import {Colors, DefaultStyles} from '@degenwallet/styles';
 import {FormListItem} from '@degenwallet/views';
 import {useAppDispatch, useAppSelector} from '@degenwallet/store';
-import {getWalletsSelector} from '../../../core/selectors/wallets-selectors';
 import {Wallet} from '@degenwallet/types';
 import {walletsSelectWallet} from '@degenwallet/redux';
 import {FormListImageType} from '@degenwallet/views/src/form/FormListItem';
@@ -11,6 +10,7 @@ import {RouteProp} from '@react-navigation/core';
 import {SettingsScreenParamList} from '../../../navigation/SettingsStack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Screen} from '../../../navigation';
+import {getWalletsSelector} from '../../../core/selectors/wallets-selectors';
 
 export type Props = {
   route: RouteProp<SettingsScreenParamList, Screen.WALLETS>;

@@ -6,7 +6,7 @@ import {Touchable} from '@degenwallet/core-components';
 import {format, fromBigNumber} from '@degenwallet/types';
 import {FiatBalanceFormatter} from './fiat-balance-formatter';
 import {FontWeight} from '@degenwallet/styles/src/font-weight';
-import {AssetImageView} from '../../../views/AssetImageView';
+import {AssetImageView} from '../../../components/AssetImageView';
 
 export interface AssetListItemProps {
   asset: AssetItem;

@@ -1,12 +1,12 @@
 import React from 'react';
 import {FlatList, SafeAreaView, StyleSheet} from 'react-native';
-import {Screen} from '../../../navigation';
+import {Screen} from '../../navigation';
 import {Colors, DefaultStyles, FontWeight} from '@degenwallet/styles';
 import {FormListItem} from '@degenwallet/views';
 import {CurrencyList} from '@degenwallet/types';
 import {settingsSetCurrency} from '@degenwallet/redux';
 import {useAppDispatch} from '@degenwallet/store';
-import {SettingsScreenParamList} from '../../../navigation/SettingsStack';
+import {SettingsScreenParamList} from '../../navigation/SettingsStack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 export type Props = {
