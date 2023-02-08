@@ -1,12 +1,10 @@
-import {Asset} from '@degenwallet/chain-types';
-import {AssetResources, GetAssetResource} from '../../../../assets/asset-resource';
-import {FiatValue, fromBigNumber, Price} from '@degenwallet/types';
+import {AssetResources} from '../../../../assets/asset-resource';
+import {FiatValue, Price} from '@degenwallet/types';
 import {createReducer} from '@reduxjs/toolkit';
 import {
   assetsAddToList,
   assetsDefaultUpdate,
   assetsFiatTotalUpdate,
-  assetsFiatUpdate,
   assetsPriceUpdate,
   walletBalancesUpdate,
 } from '../actions/assets_actions';
@@ -78,25 +76,6 @@ export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
         ...state,
         prices: {...action.payload, ...state.prices},
       };
-    })
-    .addCase(assetsFiatUpdate, (state, action) => {
-      const wallet_id = action.payload.wallet_id;
-      const prices = action.payload.prices;
-      const wallets = state.wallets;
-      const walletAssets = wallets[wallet_id];
-
-      Object.keys(prices).forEach(assetId => {
-        const price = prices[assetId];
-        const asset = walletAssets.assets[assetId];
-        const assetResource = GetAssetResource(Asset.fromID(assetId))!;
-        if (asset === undefined || assetResource === undefined) {
-          return;
-        }
-        const balance = fromBigNumber(BigInt(asset.balance), assetResource.decimals);
-        asset.fiat_value = price.price * balance;
-        walletAssets.assets[assetId] = asset;
-      });
-      wallets[wallet_id] = walletAssets;
     })
     .addCase(assetsFiatTotalUpdate, (state, action) => {
       const wallet_id = action.payload.wallet_id;

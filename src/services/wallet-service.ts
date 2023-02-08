@@ -1,18 +1,18 @@
 import {
   addToAssetsList,
   AssetBalanceValues,
-  updateAssetsFiatValue,
   updateAssetsPrice,
   updateAssetsTotalFiatValue,
   updateDefaultAssets,
   updateWalletBalances,
 } from '@degenwallet/redux';
-import {Asset, Chain} from '@degenwallet/chain-types';
+import {Asset} from '@degenwallet/chain-types';
 import {AppDispatch} from '@degenwallet/store';
-import {GetAssetResources} from '../assets/asset-resource';
-import {MarketFetcher, Price} from '@degenwallet/market-provider';
+import {GetAssetResource, GetAssetResources} from '../assets/asset-resource';
+import {MarketFetcher} from '@degenwallet/market-provider';
 import {AssetService, BalanceService} from '@degenwallet/chain-services';
-import {Wallet} from '@degenwallet/types';
+import {fromBigNumber, Wallet} from '@degenwallet/types';
+import {walletBalancesUpdate} from '@degenwallet/redux/src/actions/assets_actions';
 
 export class WalletService {
   marketProvider = new MarketFetcher();
@@ -50,14 +50,21 @@ export class WalletService {
       )
       .then(prices => {
         return dispatch(updateAssetsPrice(prices.prices)).then(_ => {
-          return this.updateFiat(dispatch, wallet, prices.prices);
+          prices.prices.forEach(price => {
+            const assetId = price.asset.getId();
+            const asset = balances[assetId];
+            const assetResource = GetAssetResource(Asset.fromID(assetId))!;
+            if (asset === undefined || assetResource === undefined) {
+              return;
+            }
+            const balance = fromBigNumber(BigInt(asset.balance), assetResource.decimals);
+            balances[assetId].fiat_value = price.price * balance;
+          });
+          return dispatch(walletBalancesUpdate({walletId: wallet.id, assets: balances}));
         });
+      })
+      .then(_ => {
+        return dispatch(updateAssetsTotalFiatValue(wallet.id));
       });
-  }
-
-  updateFiat(dispatch: AppDispatch, wallet: Wallet, prices: Price[]) {
-    return dispatch(updateAssetsFiatValue(wallet.id, prices)).then(_ =>
-      dispatch(updateAssetsTotalFiatValue(wallet.id)),
-    );
   }
 }

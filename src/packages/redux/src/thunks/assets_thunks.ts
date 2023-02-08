@@ -4,7 +4,6 @@ import {
   assetsAddToList,
   assetsDefaultUpdate,
   assetsFiatTotalUpdate,
-  assetsFiatUpdate,
   assetsPriceUpdate,
   mapPricesToMap,
   walletBalancesUpdate,
@@ -36,10 +35,6 @@ export const updateWalletBalances = (walletId: string, balances: AssetBalance[])
 
 export const addToAssetsList = (assets: AssetResource[]) => async (dispatch: AppDispatch) => {
   return dispatch(assetsAddToList(assets));
-};
-
-export const updateAssetsFiatValue = (wallet_id: string, prices: AssetPrice[]) => async (dispatch: AppDispatch) => {
-  return dispatch(assetsFiatUpdate({wallet_id, prices: mapPricesToMap(prices)}));
 };
 
 export const updateAssetsTotalFiatValue = (wallet_id: string) => async (dispatch: AppDispatch) => {

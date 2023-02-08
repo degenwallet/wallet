@@ -18,11 +18,6 @@ export const walletBalancesUpdate = createAction(
 
 export const assetsPriceUpdate = createAction('assets.prices.update', withPayloadType<AssetsPriceMap>());
 
-export const assetsFiatUpdate = createAction(
-  'assets.fiat.update.value',
-  withPayloadType<{wallet_id: string; prices: AssetsPriceMap}>(),
-);
-
 export const assetsFiatTotalUpdate = createAction(
   'assets.fiat.total.update.value',
   withPayloadType<{wallet_id: string}>(),
