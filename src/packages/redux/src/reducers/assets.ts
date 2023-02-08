@@ -4,28 +4,27 @@ import {FiatValue, fromBigNumber, Price} from '@degenwallet/types';
 import {createReducer} from '@reduxjs/toolkit';
 import {
   assetsAddToList,
-  assetsBalancesUpdate,
+  assetsDefaultUpdate,
   assetsFiatTotalUpdate,
   assetsFiatUpdate,
   assetsPriceUpdate,
+  walletBalancesUpdate,
 } from '../actions/assets_actions';
 
-export type AssetStore = {
+export type AssetBalanceValues = {
   balance: string;
   fiat_value: number;
 };
 
 export type WalletAssetsMap = {
-  [key: string]: WalletAssets;
+  [key: string]: WalletValues;
 };
 
-export type WalletAssets = {
+export type AssetsBalancesStore = {[key: string]: AssetBalanceValues};
+
+export type WalletValues = {
   fiat_value: FiatValue;
-  assets: {[key: string]: AssetStore};
-};
-
-export type BalancesMap = {
-  [key: string]: string;
+  assets: AssetsBalancesStore;
 };
 
 interface AssetsState {
@@ -42,6 +41,15 @@ const INITIAL_STATE: AssetsState = {
   prices: {},
 };
 
+const InitialWalletState = {
+  assets: {},
+  fiat_value: {
+    value: 0,
+    value_change: 0,
+    value_change_percentage: 0,
+  },
+};
+
 export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
   builder
     .addCase(assetsAddToList, (state, action) => {
@@ -50,29 +58,20 @@ export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
         generic_list: Object.fromEntries(action.payload.map(asset => [asset.asset, asset])),
       };
     })
-    .addCase(assetsBalancesUpdate, (state, action) => {
-      const wallet_id = action.payload.wallet_id;
-      const wallets = state.wallets || {};
-      const balances = action.payload.balances;
-      const walletAssets: WalletAssets = wallets[wallet_id] || {
-        assets: {},
-        fiat_value: {
-          value: 0,
-          value_change: 0,
-          value_change_percentage: 0,
-        },
-      };
-
-      Object.keys(balances).forEach(key => {
-        const asset = walletAssets.assets[key] || {
-          balance: '',
-          fiat_value: 0,
-        };
-        asset.balance = balances[key];
-        walletAssets.assets[key] = asset;
+    .addCase(assetsDefaultUpdate, (state, action) => {
+      const wallet: WalletValues = state.wallets[action.payload.walletId] || InitialWalletState;
+      action.payload.assets.forEach(value => {
+        if (wallet.assets[value]) {
+          wallet.assets[value] = {
+            balance: '',
+            fiat_value: 0,
+          };
+        }
       });
-
-      wallets[wallet_id] = walletAssets;
+      state.wallets[action.payload.walletId] = wallet;
+    })
+    .addCase(walletBalancesUpdate, (state, action) => {
+      state.wallets[action.payload.walletId].assets = action.payload.assets;
     })
     .addCase(assetsPriceUpdate, (state, action) => {
       return {

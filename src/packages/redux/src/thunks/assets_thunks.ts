@@ -2,21 +2,36 @@ import {AssetResource} from '../../../../assets/asset-resource';
 import {AppDispatch} from '@degenwallet/store';
 import {
   assetsAddToList,
-  assetsBalancesUpdate,
+  assetsDefaultUpdate,
   assetsFiatTotalUpdate,
   assetsFiatUpdate,
   assetsPriceUpdate,
   mapPricesToMap,
+  walletBalancesUpdate,
 } from '../actions/assets_actions';
 import {AssetPrice, Wallet} from '@degenwallet/types';
-import {AssetBalance} from '@degenwallet/chain-types';
-import {BalancesMap} from '../reducers/assets';
+import {Asset, AssetBalance} from '@degenwallet/chain-types';
 
-export const updateAssetsBalance = (wallet: Wallet, balances: AssetBalance[]) => async (dispatch: AppDispatch) => {
-  const balancesMap: BalancesMap = Object.fromEntries(
-    balances.map(balance => [balance.asset.getId(), balance.available.toString(10)]),
+export const updateDefaultAssets = (wallet: Wallet) => async (dispatch: AppDispatch) => {
+  // TODO: Once we support multi-chain it would enable us to add only specific coins on start.
+  const defaultAssets = wallet.accounts
+    .map(el => [new Asset(el.chain)]) // TODO: reduce
+    .flat()
+    .map(asset => asset.getId());
+  return dispatch(assetsDefaultUpdate({walletId: wallet.id, assets: defaultAssets}));
+};
+
+export const updateWalletBalances = (walletId: string, balances: AssetBalance[]) => async (dispatch: AppDispatch) => {
+  const values = Object.fromEntries(
+    balances.map(value => [
+      value.asset.getId(),
+      {
+        balance: value.available.toString(10),
+        fiat_value: 0,
+      },
+    ]),
   );
-  return dispatch(assetsBalancesUpdate({wallet_id: wallet.id, balances: balancesMap}));
+  return dispatch(walletBalancesUpdate({walletId: walletId, assets: values}));
 };
 
 export const addToAssetsList = (assets: AssetResource[]) => async (dispatch: AppDispatch) => {

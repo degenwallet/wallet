@@ -1,12 +1,13 @@
 import {
   addToAssetsList,
-  BalancesMap,
-  updateAssetsBalance,
+  AssetBalanceValues,
   updateAssetsFiatValue,
   updateAssetsPrice,
   updateAssetsTotalFiatValue,
+  updateDefaultAssets,
+  updateWalletBalances,
 } from '@degenwallet/redux';
-import {Asset, AssetBalance, Chain} from '@degenwallet/chain-types';
+import {Asset, Chain} from '@degenwallet/chain-types';
 import {AppDispatch} from '@degenwallet/store';
 import {GetAssetResources} from '../assets/asset-resource';
 import {MarketFetcher, Price} from '@degenwallet/market-provider';
@@ -23,14 +24,9 @@ export class WalletService {
   refresh(dispatch: AppDispatch, wallet: Wallet, currency: string) {
     const assetResource = GetAssetResources(wallet.accounts[0].chain);
     const assetsResource = Object.keys(assetResource.assets).map(key => assetResource.assets[key]);
-    const defaultAssets = wallet.accounts
-      .map(el => this.defaultAssets(el.chain))
-      .flat()
-      .map(asset => new AssetBalance(asset, BigInt(0)));
-
     return dispatch(addToAssetsList(assetsResource))
       .then(_ => {
-        return dispatch(updateAssetsBalance(wallet, defaultAssets));
+        return dispatch(updateDefaultAssets(wallet));
       })
       .then(_ => {
         return this.assetService.getAssets(wallet.accounts);
@@ -38,20 +34,15 @@ export class WalletService {
       .then(assets => {
         return this.balanceService.getBalances(wallet.accounts, assets);
       })
-      .then(assets => {
-        return dispatch(updateAssetsBalance(wallet, assets));
+      .then(balances => {
+        return dispatch(updateWalletBalances(wallet.id, balances));
       })
       .then(assets => {
-        return this.updatePrices(dispatch, wallet, currency, assets.payload.balances);
+        return this.updatePrices(dispatch, wallet, currency, assets.payload.assets);
       });
   }
 
-  // TODO: Once we support multi-chain it would enable us to add only specific coins on start.
-  defaultAssets(chain: Chain): Asset[] {
-    return [new Asset(chain)];
-  }
-
-  updatePrices(dispatch: AppDispatch, wallet: Wallet, currency: string, balances: BalancesMap) {
+  updatePrices(dispatch: AppDispatch, wallet: Wallet, currency: string, balances: {[key: string]: AssetBalanceValues}) {
     return this.marketProvider
       .getPrice(
         currency,
