@@ -28,12 +28,11 @@ export class ProviderView extends React.Component<ProviderViewProps> {
     const quote = quotes[0];
     return (
       <View style={styles.info_container}>
-        <FormListItem title={'Provider'} subtitle={quote.provider} style={styles.info_item} isChevronHidden={true} />
+        <FormListItem title={'Provider'} subtitle={quote.provider} style={styles.info_item} />
         <FormListItem
           title={'Rate'}
           subtitle={`1 ${assetItem.info.symbol} ≈ ${round(quote.quote.rate, 4)}`}
           style={styles.info_item}
-          isChevronHidden={true}
         />
       </View>
     );

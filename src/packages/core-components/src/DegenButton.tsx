@@ -1,11 +1,12 @@
 import {GestureResponderEvent, StyleSheet, Text} from 'react-native';
 import React from 'react';
-import {Colors, FontWeight, DegenButtonStyle} from '@degenwallet/styles';
+import {Colors, DegenButtonStyle, FontWeight} from '@degenwallet/styles';
 import {Touchable} from '@degenwallet/core-components';
 
 export interface DegenButtonProps {
   title: string;
   style: DegenButtonStyle;
+  disabled?: boolean;
   onPress?: ((event: GestureResponderEvent) => void) | undefined;
 }
 
@@ -18,6 +19,7 @@ export class DegenButton extends React.Component<DegenButtonProps> {
           ...styles.container,
           backgroundColor: buttonStyle.backgroundColor,
         }}
+        disabled={this.props.disabled}
         underlayColor={buttonStyle.underlayColor}
         onPress={this.props.onPress}>
         <Text style={styles.title}>{this.props.title}</Text>
