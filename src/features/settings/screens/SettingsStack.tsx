@@ -10,6 +10,7 @@ import {
   WalletDetailsScreen,
   WalletsScreen,
 } from '../../../core/screens';
+
 import {Image, Platform, TouchableOpacity} from 'react-native';
 
 export const SettingsNavigator: () => React.ReactElement = () => {

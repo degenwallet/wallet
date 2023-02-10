@@ -18,13 +18,9 @@ import {GetAssetResource} from '../../../assets/asset-resource';
 import {Account, WalletType} from '@degenwallet/types';
 
 export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navigation}) => {
-  const [name, onChangeName] = React.useState('');
-  const [value, onChangeText] = React.useState('');
-  //const [selectedChain, onChangeSelectedChain] = React.useState(Chain.BNB_CHAIN);
-
   const dispatch = useAppDispatch();
   const state = useAppSelector(s => s.wallets.wallets);
-
+  const initialChain = Chain.BNB_CHAIN;
   const defaultName = (name: string, chain: Chain) => {
     const walletsCount = state.filter(wallet => wallet.accounts[0].chain === chain).length;
     const assetResource = GetAssetResource(new Asset(chain))!;
@@ -41,27 +37,27 @@ export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navig
     });
   };
 
+  const isValidAddress = async (chain: Chain, address: string) => {
+    const coin = TWAsset.coinFromChain(chain);
+    return await AnyAddress.validateAddress(address, coin);
+  };
+
   type Values = {
     chain: Chain;
     name: string;
     address: string;
   };
 
-  const isValidAddress = async (chain: Chain, address: string) => {
-    const coin = TWAsset.coinFromChain(Chain.BNB_CHAIN);
-    return await AnyAddress.validateAddress(address || '', coin);
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <Formik
-        initialValues={{chain: Chain.BNB_CHAIN, name: '', address: ''}}
+        initialValues={{chain: initialChain, name: '', address: ''}}
         validationSchema={Yup.object().shape({
           name: Yup.string(),
           address: Yup.string()
             .required()
-            .test('address validation', 'Invalid address', async value => {
-              return await isValidAddress(Chain.BNB_CHAIN, value || '');
+            .test('address validation', 'Invalid address', async (value, context) => {
+              return await isValidAddress(context.parent.chain, value || '');
             }),
         })}
         onSubmit={values => {
@@ -83,13 +79,14 @@ export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navig
             />
             <FormTextField
               editable
+              autoCapitalize={'none'}
+              autoCorrect={false}
               style={styles.input_name}
               onChangeText={props.handleChange('name')}
               value={props.values.name}
               onTouchStart={_ => {
                 props.setFieldTouched('name');
               }}
-              //clearButtonMode={'while-editing'}
               placeholder="Name"
               keyboardType="default"
               enablesReturnKeyAutomatically={true}
@@ -98,13 +95,14 @@ export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navig
             />
             <FormTextField
               editable
+              autoCapitalize={'none'}
+              autoCorrect={false}
               style={styles.input}
               onChangeText={props.handleChange('address')}
               onTouchStart={_ => {
                 props.setFieldTouched('address');
               }}
               value={props.values.address}
-              //clearButtonMode={'while-editing'}
               placeholder="Enter an address"
               keyboardType="default"
               enablesReturnKeyAutomatically={true}
@@ -115,12 +113,7 @@ export const ImportWalletScreen: React.FC<Props<Screen.IMPORT_WALLET>> = ({navig
               <DegenButton
                 style={DegenButtonStyle.normal}
                 title={'Import Wallet'}
-                onPress={() => {
-                  //props.validateForm().then(r => r);
-                  //props.submitForm().then(r => r);
-                  //props.ha
-                  //handleSubmit(name, selectedChain, value).then(r => r);
-                }}
+                onPress={_ => props.handleSubmit()}
               />
             </View>
           </View>
