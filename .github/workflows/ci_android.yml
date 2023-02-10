@@ -21,7 +21,7 @@ jobs:
       - uses: c-hive/gha-yarn-cache@v2
 
       - name: Install dependencies
-        run: yarn install
+        run: npm install
 
       - name: Cache Gradle Wrapper
         uses: actions/cache@v2
@@ -38,7 +38,7 @@ jobs:
             ${{ runner.os }}-gradle-caches-
 
       - name: Run build android
-        run: yarn run build:android:debug
+        run: npm run build:android:debug
         env:
           GRP_USERNAME: ${{ github.actor }}
           GRP_TOKEN: ${{ secrets.GITHUB_TOKEN }}

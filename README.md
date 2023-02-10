@@ -45,7 +45,7 @@ If you want to contribute, you can use our [main telegram](https://t.me/degenwal
 ## 🚀 Getting Started
 
 1. Setup React Native Enviroment: https://reactnative.dev/docs/environment-setup
-2. Run `yarn install && yarn install:ios`
+2. Run `npm install && npm install:ios`
 
 ## 👨‍👧‍👦 Contributors
 

@@ -24,13 +24,13 @@ jobs:
         run: brew install xcbeautify
 
       - name: Install dependencies
-        run: yarn install
+        run: npm install
 
       - name: Install iOS Dependency
-        run: yarn run install:ios
+        run: npm run install:ios
 
       - name: Run iOS debug build
-        run: yarn run build:ios:debug
+        run: npm run build:ios:debug
 
       - name: Run iOS release build
-        run: yarn run build:ios:release
+        run: npm run build:ios:release
