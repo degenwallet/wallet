@@ -67,6 +67,7 @@ export const BuyCryptoScreen: React.FC<Props> = ({route, navigation}) => {
   };
 
   const quote = quotes[0];
+  const disabled = quotes.length === 0;
 
   return (
     <SafeAreaView style={styles.rootContainer}>
@@ -96,16 +97,12 @@ export const BuyCryptoScreen: React.FC<Props> = ({route, navigation}) => {
         />
         <ProviderView quotes={quotes} quoteError={quoteError} assetItem={assetItem} />
       </View>
-      <View
-        style={{
-          ...styles.button_container,
-        }}
-        //TODO: Change button state to disabled instead of pointerEvents
-        pointerEvents={quotes.length === 0 ? 'none' : 'auto'}>
+      <View style={styles.button_container}>
         <DegenButton
           onPress={_ => buyAction(quote)}
           title={`Buy ${assetItem.info.symbol}`}
           style={DegenButtonStyle.normal}
+          disabled={disabled}
         />
       </View>
     </SafeAreaView>
