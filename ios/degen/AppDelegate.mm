@@ -33,7 +33,6 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   bool turboModuleEnabled = false;
-  bool fabricEnabled = false;
   
   RCTAppSetupPrepareApp(application, turboModuleEnabled);
 
@@ -48,10 +47,10 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 #endif
   
   // In the above code example the image size limit is set to 12 MB and the total cost limit is set to 512 MB.
-  RCTSetImageCacheLimits(12*1024*1024, 512*1024*1024);
+  RCTSetImageCacheLimits(64*1024*1024, 1024*1024*1024);
 
   NSDictionary *initProps = [self prepareInitialProps];
-  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"degen", initProps, fabricEnabled);
+  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"degen", initProps, true);
 
 // Magic
 //  if (@available(iOS 13.0, *)) {
