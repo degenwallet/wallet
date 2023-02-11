@@ -39,7 +39,7 @@ const INITIAL_STATE: AssetsState = {
   prices: {},
 };
 
-const InitialWalletState = {
+const initialWalletBalanceState = {
   assets: {},
   fiat_value: {
     value: 0,
@@ -57,7 +57,7 @@ export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
       };
     })
     .addCase(assetsDefaultUpdate, (state, action) => {
-      const wallet: WalletValues = state.wallets[action.payload.walletId] || InitialWalletState;
+      const wallet: WalletValues = state.wallets[action.payload.walletId] || initialWalletBalanceState;
       action.payload.assets.forEach(value => {
         if (wallet.assets[value]) {
           wallet.assets[value] = {
