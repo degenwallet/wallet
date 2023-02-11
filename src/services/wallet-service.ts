@@ -1,18 +1,10 @@
-import {
-  addToAssetsList,
-  AssetBalanceValues,
-  updateAssetsPrice,
-  updateAssetsTotalFiatValue,
-  updateDefaultAssets,
-  updateWalletBalances,
-} from '@degenwallet/redux';
+import {addToAssetsList, updateAssetsPrice, updateDefaultAssets, updateWalletBalances} from '@degenwallet/redux';
 import {Asset} from '@degenwallet/chain-types';
 import {AppDispatch} from '@degenwallet/store';
-import {GetAssetResource, GetAssetResources} from '../assets/asset-resource';
+import {GetAssetResources} from '../assets/asset-resource';
 import {MarketFetcher} from '@degenwallet/market-provider';
 import {AssetService, BalanceService} from '@degenwallet/chain-services';
-import {fromBigNumber, Wallet} from '@degenwallet/types';
-import {walletBalancesUpdate} from '@degenwallet/redux/src/actions/assets_actions';
+import {Wallet} from '@degenwallet/types';
 
 export class WalletService {
   marketProvider = new MarketFetcher();
@@ -38,33 +30,18 @@ export class WalletService {
         return dispatch(updateWalletBalances(wallet.id, balances));
       })
       .then(assets => {
-        return this.updatePrices(dispatch, wallet, currency, assets.payload.assets);
+        return this.updatePrices(dispatch, wallet, currency, Object.keys(assets));
       });
   }
 
-  updatePrices(dispatch: AppDispatch, wallet: Wallet, currency: string, balances: {[key: string]: AssetBalanceValues}) {
+  updatePrices(dispatch: AppDispatch, wallet: Wallet, currency: string, assetsId: string[]) {
     return this.marketProvider
       .getPrice(
         currency,
-        Object.keys(balances).map(key => Asset.fromID(key)),
+        assetsId.map(id => Asset.fromID(id)),
       )
       .then(prices => {
-        return dispatch(updateAssetsPrice(prices.prices)).then(_ => {
-          prices.prices.forEach(price => {
-            const assetId = price.asset.getId();
-            const asset = balances[assetId];
-            const assetResource = GetAssetResource(Asset.fromID(assetId))!;
-            if (asset === undefined || assetResource === undefined) {
-              return;
-            }
-            const balance = fromBigNumber(BigInt(asset.balance), assetResource.decimals);
-            balances[assetId].fiat_value = price.price * balance;
-          });
-          return dispatch(walletBalancesUpdate({walletId: wallet.id, assets: balances}));
-        });
-      })
-      .then(_ => {
-        return dispatch(updateAssetsTotalFiatValue(wallet.id));
+        return dispatch(updateAssetsPrice(prices.prices));
       });
   }
 }

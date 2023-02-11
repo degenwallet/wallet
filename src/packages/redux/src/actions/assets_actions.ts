@@ -18,10 +18,7 @@ export const walletBalancesUpdate = createAction(
 
 export const assetsPriceUpdate = createAction('assets.prices.update', withPayloadType<AssetsPriceMap>());
 
-export const assetsFiatTotalUpdate = createAction(
-  'assets.fiat.total.update.value',
-  withPayloadType<{wallet_id: string}>(),
-);
+export const updateFiat = createAction('fiat.update', withPayloadType<string>());
 
 export const mapPricesToMap = (prices: AssetPrice[]): AssetsPriceMap => {
   const pricesMap: AssetsPriceMap = {};

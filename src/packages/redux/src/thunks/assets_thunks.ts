@@ -3,7 +3,6 @@ import {AppDispatch} from '@degenwallet/store';
 import {
   assetsAddToList,
   assetsDefaultUpdate,
-  assetsFiatTotalUpdate,
   assetsPriceUpdate,
   mapPricesToMap,
   walletBalancesUpdate,
@@ -35,10 +34,6 @@ export const updateWalletBalances = (walletId: string, balances: AssetBalance[])
 
 export const addToAssetsList = (assets: AssetResource[]) => async (dispatch: AppDispatch) => {
   return dispatch(assetsAddToList(assets));
-};
-
-export const updateAssetsTotalFiatValue = (wallet_id: string) => async (dispatch: AppDispatch) => {
-  return dispatch(assetsFiatTotalUpdate({wallet_id}));
 };
 
 export const updateAssetsPrice = (prices: AssetPrice[]) => async (dispatch: AppDispatch) => {

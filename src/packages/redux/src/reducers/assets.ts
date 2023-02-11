@@ -1,13 +1,14 @@
-import {AssetResources} from '../../../../assets/asset-resource';
-import {FiatValue, Price} from '@degenwallet/types';
+import {AssetResources, GetAssetResource} from '../../../../assets/asset-resource';
+import {FiatValue, fromBigNumber, Price} from '@degenwallet/types';
 import {createReducer} from '@reduxjs/toolkit';
 import {
   assetsAddToList,
   assetsDefaultUpdate,
-  assetsFiatTotalUpdate,
   assetsPriceUpdate,
+  updateFiat,
   walletBalancesUpdate,
 } from '../actions/assets_actions';
+import {Asset} from '@degenwallet/chain-types';
 
 export type AssetBalanceValues = {
   balance: string;
@@ -39,7 +40,7 @@ const INITIAL_STATE: AssetsState = {
   prices: {},
 };
 
-const initialWalletBalanceState = {
+const InitialWalletState = {
   assets: {},
   fiat_value: {
     value: 0,
@@ -57,7 +58,7 @@ export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
       };
     })
     .addCase(assetsDefaultUpdate, (state, action) => {
-      const wallet: WalletValues = state.wallets[action.payload.walletId] || initialWalletBalanceState;
+      const wallet: WalletValues = state.wallets[action.payload.walletId] || InitialWalletState;
       action.payload.assets.forEach(value => {
         if (wallet.assets[value]) {
           wallet.assets[value] = {
@@ -69,41 +70,44 @@ export const AssetsReducer = createReducer(INITIAL_STATE, builder => {
       state.wallets[action.payload.walletId] = wallet;
     })
     .addCase(walletBalancesUpdate, (state, action) => {
-      state.wallets[action.payload.walletId].assets = action.payload.assets;
+      const wallet = state.wallets[action.payload.walletId];
+      const prices = state.prices;
+      wallet.assets = action.payload.assets;
+      state.wallets[action.payload.walletId] = fiatController(wallet, prices);
     })
     .addCase(assetsPriceUpdate, (state, action) => {
-      return {
-        ...state,
-        prices: {...action.payload, ...state.prices},
-      };
-    })
-    .addCase(assetsFiatTotalUpdate, (state, action) => {
-      const wallet_id = action.payload.wallet_id;
-      const wallets = state.wallets;
-      const walletAssets = wallets[wallet_id] || {};
-      const fiatValue = walletAssets.fiat_value || {
-        value: 0,
-        value_change: 0,
-        value_change_percentage: 0,
-      };
-
-      let totalValue = 0;
-      let totalValueChange = 0;
-
-      Object.keys(walletAssets.assets).forEach(assetId => {
-        const asset = walletAssets.assets[assetId];
-        const price = state.prices[assetId];
-        if (price === undefined) {
-          return;
-        }
-        totalValue += asset.fiat_value;
-        totalValueChange += (asset.fiat_value * price.change_24h) / 100;
+      const prices = {...action.payload, ...state.prices};
+      Object.keys(state.wallets).forEach(walletId => {
+        state.wallets[walletId] = fiatController(state.wallets[walletId], prices);
       });
-      fiatValue.value = totalValue;
-      fiatValue.value_change = totalValueChange;
-      fiatValue.value_change_percentage = (totalValueChange * 100) / totalValue;
-
-      walletAssets.fiat_value = fiatValue;
-      wallets[wallet_id] = walletAssets;
+      state.prices = prices;
+    })
+    .addCase(updateFiat, (state, action) => {
+      const prices = state.prices;
+      const wallet = state.wallets[action.payload];
+      state.wallets[action.payload] = fiatController(wallet, prices);
     });
 });
+
+const fiatController = (wallet: WalletValues, prices: {[key: string]: Price}) => {
+  let totalValue = 0;
+  let totalValueChange = 0;
+  Object.keys(wallet.assets).forEach(assetId => {
+    const assetResource = GetAssetResource(Asset.fromID(assetId))!;
+    if (assetResource === undefined) {
+      return;
+    }
+    const price = prices[assetId] || 0;
+    const balance = fromBigNumber(BigInt(wallet.assets[assetId].balance), assetResource.decimals);
+    const fiatValue = price.price * balance;
+    wallet.assets[assetId].fiat_value = fiatValue;
+    totalValue += fiatValue;
+    totalValueChange += (fiatValue * price.change_24h) / 100;
+  });
+  wallet.fiat_value = {
+    value: totalValue,
+    value_change: totalValueChange,
+    value_change_percentage: (totalValueChange * 100) / totalValue,
+  };
+  return wallet;
+};
